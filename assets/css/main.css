@@ -378,6 +378,7 @@ h3 {
 
 .proof {
 	position: relative;
+	overflow: hidden; /* le liseré du haut suit l'arrondi de la carte */
 	padding: 2rem;
 	background: var(--color-paper);
 	border-radius: var(--radius);
@@ -391,7 +392,6 @@ h3 {
 	position: absolute;
 	inset: 0 0 auto;
 	height: 6px;
-	border-radius: var(--radius) var(--radius) 0 0;
 	background: var(--gradient-brand);
 }
 
