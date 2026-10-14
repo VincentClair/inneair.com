@@ -17,7 +17,7 @@
 	--color-violet: #5f4d93;
 
 	/* Déclinaisons */
-	--color-coral-deep: #b9475a; /* texte et liens corail sur fond clair : contraste 4,8 */
+	--color-coral-deep: #b03f53; /* texte corail sur fond clair : contraste 4,9 sur le rose pâle, 5,3 sur le crème */
 	--color-violet-dark: #4b3c7a;
 	--color-lilac: #d4c2d9;
 	--color-ink: #2a1d35; /* aubergine : texte et bandes sombres */
@@ -549,13 +549,12 @@ h3 {
 	color: #4a3a55;
 }
 
-/* Logos officiels convertis en une seule encre noire (images/logos), affichés dans un même gris clair. */
+/* Logos officiels convertis en une seule encre noire (images/logos, SVG compris), affichés dans un même gris clair. */
 .wall img {
 	width: auto;
 	height: auto;
 	max-width: 78%;
 	max-height: 1.9rem;
-	filter: brightness(0);
 	opacity: 0.42;
 }
 
