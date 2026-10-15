@@ -1138,6 +1138,51 @@ h3 {
 	filter: drop-shadow(0 1.25rem 2rem rgb(42 29 53 / 0.14));
 }
 
+/* L'icône de chaque produit en tête de carte, dans une tuile arrondie. */
+.product__head {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.product__icon {
+	flex: none;
+	width: 3.5rem;
+	height: 3.5rem;
+	padding: 0.4rem;
+	background: var(--color-mist);
+	border-radius: 14px;
+	object-fit: contain;
+}
+
+.product__icon--tile {
+	padding: 0;
+	object-fit: cover;
+}
+
+/* Marques sur fond transparent (Origami, Ikima 1) : sans tuile, un peu plus grandes. */
+.product__icon--mark {
+	width: 4rem;
+	height: 4rem;
+	padding: 0;
+	background: none;
+	border-radius: 0;
+}
+
+.product__head + p {
+	margin-top: 0.75rem;
+	color: var(--color-ink-soft);
+}
+
+.product--main .product__icon {
+	width: 4.5rem;
+	height: 4.5rem;
+}
+
+.product--main .product__head + p {
+	font-size: 1.0625rem;
+}
+
 .product__facts {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
