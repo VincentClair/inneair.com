@@ -30,6 +30,7 @@
 				"@type": "Organization",
 				"@id": "https://inneair.com/#organisation",
 				"name": "Innéair",
+				"alternateName": "Inneair",
 				"url": "https://inneair.com/",
 				"logo": "https://inneair.com/apple-touch-icon.png",
 				"image": "https://inneair.com/images/og-inneair.png",
@@ -126,13 +127,13 @@
 				<aside class="proof" aria-labelledby="titre-preuve">
 					<p class="proof__label">Reprise la plus récente</p>
 					<h2 class="proof__title" id="titre-preuve">Somfy, 2021 à 2025</h2>
-					<p class="proof__context">Plateforme web des installateurs professionnels, fiabilisée pendant quatre ans sans interrompre les livraisons.</p>
+					<p class="proof__context">Plateforme IoT des installateurs professionnels, reprise et fiabilisée pendant quatre ans sans interrompre les livraisons.</p>
 					<ul class="proof__measures">
-						<li><strong>0 gel</strong> des fonctionnalités en quatre ans, neuf versions majeures d'Angular franchies</li>
+						<li><strong>0 gel</strong> des fonctionnalités en quatre ans, huit versions majeures d'Angular franchies</li>
 						<li><strong>4 j&nbsp;→&nbsp;1 h</strong> pour intégrer un nouveau produit, une fois la procédure automatisée&nbsp;: environ 20 jours de développement gagnés par an</li>
-						<li><strong>100&nbsp;000</strong> requêtes en quatre minutes absorbées en production, latence stable pour les installateurs</li>
+						<li><strong>100&nbsp;000</strong> requêtes en quatre minutes mesurées en test de charge, puis absorbées en production avec une latence stable</li>
 					</ul>
-					<p><a class="text-link" href="#somfy">Lire la réalisation</a></p>
+					<p><a class="text-link" href="realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></p>
 				</aside>
 			</div>
 
@@ -310,23 +311,27 @@
 				<h2>Réalisations</h2>
 				<p class="band__intro">Des plateformes conçues, reprises ou fiabilisées par Innéair. Les chiffres ont été mesurés sur place.</p>
 
-				<article class="case case--featured" id="somfy">
-					<div>
+				<div class="cases">
+
+					<article class="case" id="somfy">
+						<svg class="case__figure" viewBox="0 0 320 96" aria-hidden="true">
+							<path d="M28 50L68 20l40 30v32H28z" fill="var(--color-violet)"/>
+							<g fill="var(--color-coral)"><rect x="40" y="56" width="22" height="16" rx="5"/><rect x="74" y="56" width="22" height="16" rx="5"/></g>
+							<g stroke="var(--color-lilac)" stroke-width="2"><path d="M108 62h42M178 62h36"/></g>
+							<circle cx="164" cy="62" r="14" fill="none" stroke="var(--color-coral)" stroke-width="3"/>
+							<rect x="214" y="34" width="82" height="52" rx="12" fill="var(--color-violet)"/>
+							<g fill="#fff"><rect x="226" y="46" width="44" height="6" rx="3"/><rect x="226" y="58" width="58" height="6" rx="3" opacity="0.7"/><rect x="226" y="70" width="36" height="6" rx="3" opacity="0.7"/></g>
+						</svg>
 						<p class="case__sector">Industrie et maison connectée, 2021 à 2025</p>
 						<h3>Somfy</h3>
-						<p>Innéair a assuré la référence technique de la plateforme web qu'utilisent plusieurs milliers d'installateurs professionnels&nbsp;: une interface Angular et des microservices Node.js et TypeScript, fiabilisés pendant quatre ans sans interrompre les livraisons.</p>
-						<blockquote class="case__quote"><p>«&nbsp;En l'espace de trois ans, il a introduit avec tact et efficacité la méthode BDD au sein de l'équipe. Grâce à ses efforts, la couverture des tests automatisés a considérablement progressé, passant de 2&nbsp;% à environ 70-80&nbsp;%.&nbsp;»</p><footer>Lia Silade, responsable des tests de l'équipe</footer></blockquote>
-						<p class="case__tags">Angular, Node.js, TypeScript, NestJS, Redis, microservices</p>
-					</div>
-					<ul class="case__bigmeasures">
-						<li><strong>3,4&nbsp;→&nbsp;1,51 Mo</strong> Poids de l'application Angular après sa modernisation.</li>
-						<li><strong>65&nbsp;→&nbsp;13 s</strong> Durée de compilation de l'interface.</li>
-						<li><strong>÷&nbsp;55</strong> Appels vers un service cloud tiers, mesurés en test de charge.</li>
-						<li><strong>− 68&nbsp;%</strong> Mémoire consommée par entrée d'historique dans le service d'alertes refondu.</li>
-					</ul>
-				</article>
-
-				<div class="cases">
+						<p>Reprise et évolution de la plateforme IoT des installateurs professionnels&nbsp;: une interface Angular et des micro-services Node.js et TypeScript, fiabilisés pendant quatre ans sans interrompre les livraisons.</p>
+						<ul class="case__measures">
+							<li><strong>65&nbsp;→&nbsp;13 s</strong> Durée de compilation de l'interface après sa modernisation</li>
+							<li><strong>10&nbsp;→&nbsp;5</strong> Projets à migrer vers le nouvel hébergeur</li>
+						</ul>
+						<p class="case__tags">Angular, Node.js, TypeScript, NestJS, Kafka, MongoDB</p>
+						<p class="case__more"><a class="text-link text-link--onDark" href="realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></p>
+					</article>
 
 					<article class="case" id="max">
 						<svg class="case__figure" viewBox="0 0 320 96" aria-hidden="true">
