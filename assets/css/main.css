@@ -1561,7 +1561,7 @@ h3 {
 	color: var(--color-violet);
 }
 
-/* Page de réalisation : fil d'Ariane, fiche du projet, chiffres clés, puis le récit en colonne de lecture. */
+/* Page de réalisation : fil d'Ariane, fiche du projet, puis une étape par section, chacune avec son encart. */
 
 .ariane ol {
 	display: flex;
@@ -1602,7 +1602,7 @@ h3 {
 
 .fiche {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 1.25rem 2rem;
 	padding-top: clamp(2.5rem, 5vw, 3.5rem);
 }
@@ -1629,55 +1629,112 @@ h3 {
 	color: var(--color-violet);
 }
 
-.chiffres {
-	margin-top: clamp(2.5rem, 5vw, 3.5rem);
-	padding: clamp(1.5rem, 3vw, 2.25rem);
-	background: var(--color-paper);
-	border-radius: var(--radius);
+.fiche__large {
+	grid-column: 1 / -1;
 }
 
-.chiffres h2 {
-	font-size: 1.1875rem;
-	font-stretch: 100%;
+.technos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem 1.75rem;
 }
 
-.chiffres ul {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-	gap: 1.5rem;
-	margin-top: 1.25rem;
-}
-
-.chiffres li {
-	font-size: 0.95rem;
-	line-height: 1.45;
+.technos span {
+	margin-right: 0.3rem;
+	font-weight: 640;
 	color: var(--color-ink-soft);
 }
 
-.chiffres strong {
+/* Chaque étape du projet : le récit à gauche, l'encart « à retenir » en face. */
+.etape {
+	display: grid;
+	grid-template-columns: minmax(0, 44rem) minmax(13rem, 17rem);
+	grid-template-areas:
+		"titre encart"
+		"texte encart";
+	justify-content: space-between;
+	column-gap: clamp(2rem, 5vw, 5rem);
+	margin-top: clamp(2.75rem, 5vw, 3.75rem);
+	padding-top: clamp(2.25rem, 4vw, 3rem);
+	border-top: 1px solid var(--color-rule);
+}
+
+.etape:last-child {
+	margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.etape h2 {
+	grid-area: titre;
+	max-width: none;
+	font-size: clamp(1.45rem, 1.2rem + 0.8vw, 1.75rem);
+}
+
+.etape__texte {
+	grid-area: texte;
+}
+
+.etape__texte p {
+	margin-top: 0.9rem;
+}
+
+.etape__texte strong {
+	font-weight: 650;
+}
+
+.encart {
+	grid-area: encart;
+	align-self: start;
+	padding-left: 1.25rem;
+	border-left: 3px solid var(--color-coral);
+}
+
+.encart p {
+	font-size: 0.925rem;
+	line-height: 1.4;
+	color: var(--color-ink-soft);
+}
+
+.encart p + p {
+	margin-top: 1.4rem;
+}
+
+.encart strong {
 	display: block;
-	margin-bottom: 0.45rem;
-	font-size: 2rem;
+	margin-bottom: 0.3rem;
+	font-size: 2.1rem;
 	font-stretch: 74%;
 	font-weight: 660;
 	line-height: 1;
-	white-space: nowrap;
 	color: var(--color-violet);
 }
 
-.projet__texte h2 {
-	max-width: none;
+.quotes--deux {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.projet__date {
-	padding-top: 1.5rem;
-	border-top: 1px solid var(--color-rule);
-	font-size: 0.9rem;
-	color: var(--color-ink-soft);
-}
+@media (max-width: 56rem) {
+	.fiche {
+		grid-template-columns: 1fr;
+	}
 
-.prose .projet__date {
-	margin-top: 2.75rem;
+	.etape {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"titre"
+			"encart"
+			"texte";
+	}
+
+	.encart {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+		gap: 1rem 1.5rem;
+		margin-top: 1.25rem;
+	}
+
+	.encart p + p {
+		margin-top: 0;
+	}
 }
 
 /* Lien vers la page d'une réalisation, en pied de carte. */
