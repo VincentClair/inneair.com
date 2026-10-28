@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>KeyOpsTech : fiabiliser un suivi de colis hors ligne | Innéair</title>
+	<meta name="description" content="KeyOpsTech, suivi de colis en Côte d'Ivoire et au Sénégal : Innéair a mené la refonte du moteur qui reconstitue le parcours des colis à partir d'événements différés.">
+	<link rel="canonical" href="https://inneair.com/realisations/keyopstech-suivi-colis-hors-ligne.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="Innéair">
+	<meta property="og:url" content="https://inneair.com/realisations/keyopstech-suivi-colis-hors-ligne.html">
+	<meta property="og:title" content="KeyOpsTech : fiabiliser le suivi de colis d'une logistique hors ligne en Afrique de l'Ouest">
+	<meta property="og:description" content="KeyOpsTech, suivi de colis en Côte d'Ivoire et au Sénégal : Innéair a mené la refonte du moteur qui reconstitue le parcours des colis à partir d'événements différés.">
+	<meta property="og:image" content="https://inneair.com/images/og-inneair.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Innéair, reprise et fiabilisation d'applications web">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="icon" href="../favicon.ico" sizes="48x48">
+	<link rel="icon" type="image/svg+xml" href="../images/inneair-icone-provisoire.svg">
+	<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Article",
+				"@id": "https://inneair.com/realisations/keyopstech-suivi-colis-hors-ligne.html#projet",
+				"headline": "KeyOpsTech : fiabiliser le suivi de colis d'une logistique hors ligne en Afrique de l'Ouest",
+				"description": "KeyOpsTech, suivi de colis en Côte d'Ivoire et au Sénégal : Innéair a mené la refonte du moteur qui reconstitue le parcours des colis à partir d'événements différés.",
+				"inLanguage": "fr-FR",
+				"datePublished": "2026-10-27",
+				"dateModified": "2026-10-27",
+				"image": "https://inneair.com/images/og-inneair.png",
+				"mainEntityOfPage": "https://inneair.com/realisations/keyopstech-suivi-colis-hors-ligne.html",
+				"author": { "@id": "https://inneair.com/#organisation" },
+				"publisher": { "@id": "https://inneair.com/#organisation" },
+				"about": { "@type": "Organization", "name": "KeyOpsTech" },
+				"keywords": "suivi de colis, logistique, Afrique de l'Ouest, application mobile hors ligne, événements asynchrones, idempotence, machine à états, refonte en production, PHP, Symfony"
+			},
+			{
+				"@type": "Organization",
+				"@id": "https://inneair.com/#organisation",
+				"name": "Innéair",
+				"alternateName": "Inneair",
+				"url": "https://inneair.com/",
+				"logo": "https://inneair.com/apple-touch-icon.png"
+			},
+			{
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{ "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://inneair.com/" },
+					{ "@type": "ListItem", "position": 2, "name": "Réalisations", "item": "https://inneair.com/#realisations" },
+					{ "@type": "ListItem", "position": 3, "name": "KeyOpsTech" }
+				]
+			}
+		]
+	}
+	</script>
+</head>
+<body>
+	<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+	<header class="site-header">
+		<div class="menu-etat" id="menu-etat" popover aria-hidden="true"></div>
+		<div class="wrap site-header__row">
+			<a class="logo" href="../index.html" aria-label="Innéair, retour à l'accueil">
+				<img src="../images/inneair-icone-provisoire.svg" alt="Logo d'Innéair" width="36" height="36">
+				<span class="logo__word"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+			</a>
+			<button class="menu-toggle" type="button" popovertarget="menu-etat" aria-controls="navigation">Menu</button>
+			<nav id="navigation" aria-label="Navigation principale">
+				<ul class="site-nav">
+					<li><a href="../index.html#services">Services</a></li>
+					<li><a href="../index.html#reprise">Diagnostic</a></li>
+					<li><a href="../index.html#realisations">Réalisations</a></li>
+					<li><a href="../index.html#entreprise">L'entreprise</a></li>
+					<li><a href="../index.html#faq">Questions</a></li>
+					<li class="site-nav__action"><a class="button" href="../index.html#contact">Demander un diagnostic</a></li>
+				</ul>
+			</nav>
+			<a class="button button--small site-header__action" href="../index.html#contact">Demander un diagnostic</a>
+		</div>
+	</header>
+
+	<main id="contenu">
+
+		<div class="page-title projet-titre">
+			<div class="wrap">
+				<nav class="ariane" aria-label="Fil d'Ariane">
+					<ol>
+						<li><a href="../index.html">Accueil</a></li>
+						<li><a href="../index.html#realisations">Réalisations</a></li>
+						<li aria-current="page">KeyOpsTech</li>
+					</ol>
+				</nav>
+				<p class="projet-titre__secteur">Logistique en Afrique de l'Ouest, 2019 à 2020</p>
+				<h1>KeyOpsTech : fiabiliser le suivi de colis d'une logistique hors ligne en Afrique de l'Ouest</h1>
+				<p class="projet-titre__chapo">KeyOpsTech équipait des compagnies de cars et des transporteurs de Côte d'Ivoire et du Sénégal pour suivre leurs colis de main en main&nbsp;; selon sa directrice générale, près de 200&nbsp;000 colis avaient été livrés ainsi dans quatre pays entre février 2018 et octobre 2019. De septembre 2019 à mars 2020, Innéair a mené le développement du back-end de la plateforme et la refonte du moteur qui reconstitue le parcours de chaque colis.</p>
+			</div>
+		</div>
+
+		<div class="wrap projet">
+
+			<dl class="fiche">
+				<div><dt>Client</dt><dd>KeyOpsTech, start-up lyonnaise de logistique, avec des filiales à Abidjan et à Dakar</dd></div>
+				<div><dt>Plateforme</dt><dd>KOTscan, l'application Android des guichetiers, chauffeurs et livreurs, et son back-end, qui tient l'état de chaque colis&nbsp;; paiement par Mobile Money</dd></div>
+				<div><dt>Intervention d'Innéair</dt><dd>Encadrement des développeurs du back-end, refonte du cycle de vie des colis, relecture et mises en production</dd></div>
+				<div class="fiche__large"><dt>Technologies</dt><dd><ul class="technos">
+					<li><span>Back-end</span> PHP, Symfony, Doctrine, Sonata Admin</li>
+					<li><span>Données</span> MySQL, Redis</li>
+					<li><span>Mobile</span> Android, Firebase</li>
+					<li><span>Tests</span> PHPUnit, Newman</li>
+					<li><span>Déploiement</span> Docker, Kubernetes, Helm, Ansible, GitLab CI</li>
+				</ul></dd></div>
+			</dl>
+
+				<section class="etape">
+					<h2>Reconstituer le parcours de chaque colis</h2>
+					<aside class="encart" aria-label="À retenir">
+						<p><strong>1&nbsp;classe</strong>par opération métier&nbsp;: elle écrit l'historique du colis, applique sa règle et publie un événement</p>
+						<p><strong>2&nbsp;lignes</strong>par action dans les contrôleurs d'événements, après la refonte</p>
+					</aside>
+					<div class="etape__texte">
+						<p>Chaque fois qu'un colis changeait de mains, les deux téléphones échangeaient des QR codes, et la responsabilité du colis passait de l'un à l'autre. Les téléphones travaillaient souvent sans réseau&nbsp;: ils envoyaient leurs événements plus tard, chacun de son côté. Le serveur recevait donc chaque transfert deux fois, parfois avant la création du colis, et c'était à lui de reconstituer le parcours de chaque colis et d'en tenir l'état. À l'arrivée d'Innéair, ces règles étaient dispersées entre un contrôleur, un abonné et un service, mêlées à l'envoi des SMS et à la détection des fraudes.</p>
+						<p>Innéair a écrit l'étude préalable et l'architecture cible de la refonte, puis l'a découpée en lots répartis entre trois développeurs. <strong>Elle en a conçu le cadre&nbsp;: chaque opération métier devient une classe</strong> qui écrit son entrée dans l'historique du colis, avec un statut de réussite ou d'échec, applique sa règle, puis publie un événement. Les notifications, la détection des fraudes et les opérations dérivées, comme la mise à disposition ou le départ en livraison, s'abonnent à ces événements. Innéair a écrit les dix premières opérations et aligné les statuts sur ceux de la page de suivi des clients&nbsp;; l'équipe a écrit les règles de transition, puis ses propres opérations. La refonte est partie en production en janvier 2020.</p>
+					</div>
+				</section>
+
+				<section class="etape">
+					<h2>Absorber des événements en double, en retard ou dans le désordre</h2>
+					<aside class="encart" aria-label="À retenir">
+						<p><strong>HTTP&nbsp;200</strong>la seule réponse qui retire un événement de la file d'envoi d'un téléphone</p>
+					</aside>
+					<div class="etape__texte">
+						<p>Un téléphone renvoyait un événement tant que le serveur ne l'avait pas acquitté, et une erreur durable bloquait toute sa file d'envoi. Le serveur acquittait déjà les doublons&nbsp;; Innéair a étendu cet acquittement aux événements invalides, que le rejeu ne corrigerait jamais, et elle a déplacé le contrôle des doublons de MongoDB vers MySQL. Pendant la recette de la refonte, elle a gardé dans l'API, pour les applications déjà installées, un champ que la refonte supprimait du modèle.</p>
+						<p>Dans le cadre de la refonte, <strong>Innéair a aussi piloté le tri des événements reçus dans le désordre</strong>&nbsp;: la création d'abord, la livraison à la fin, puis l'ordre des étapes sur la route et la date. Les informations courantes du colis ne sont mises à jour que par la dernière entrée de son historique.</p>
+					</div>
+				</section>
+
+				<section class="etape">
+					<h2>Alléger le modèle avant de refondre</h2>
+					<aside class="encart" aria-label="À retenir">
+						<p><strong>≈&nbsp;2&nbsp;000</strong>lignes de code supprimées de plus qu'écrites sur la mission</p>
+						<p><strong>1&nbsp;base</strong>de données en moins&nbsp;: MongoDB, retirée du code et du déploiement</p>
+					</aside>
+					<div class="etape__texte">
+						<p>Dès septembre 2019, Innéair a allégé le modèle. Elle a sorti les colis inconnus de la table des colis, où ils étaient enregistrés comme de faux colis, pour leur donner leur propre objet, avec une association automatique quand un seul colis correspond. Elle a aussi retiré les lots, les retours et les destructions de colis.</p>
+						<p>Elle a ensuite remplacé 221 lignes de routage maison par l'algorithme de Yen d'une bibliothèque déjà présente dans le projet, et retiré MongoDB du code et du déploiement. Sur l'ensemble de la mission, Innéair a supprimé près de 2&nbsp;000 lignes de code applicatif de plus qu'elle n'en a écrit.</p>
+					</div>
+				</section>
+
+				<section class="etape">
+					<h2>Tester et livrer</h2>
+					<aside class="encart" aria-label="À retenir">
+						<p><strong>176&nbsp;→&nbsp;488</strong>tests unitaires pendant la mission</p>
+						<p><strong>100&nbsp;%</strong>des opérations du nouveau cadre couvertes par les tests</p>
+					</aside>
+					<div class="etape__texte">
+						<p>Innéair a encadré les quatre à six développeurs du back-end&nbsp;: elle relisait et fusionnait leur travail. À partir de janvier 2020, elle a lancé les mises en production à tour de rôle avec un développeur de l'équipe, en se synchronisant avec l'exploitation et l'équipe mobile.</p>
+						<p>Innéair et un développeur de l'équipe ont été les deux principaux auteurs des tests unitaires, passés de 176 à 488 pendant la mission&nbsp;; ils couvrent entièrement les opérations du nouveau cadre. Innéair a aussi monté Symfony en version 4.4 et PHPUnit en version 9.</p>
+					</div>
+				</section>
+
+				<section class="etape">
+					<h2>Ce qu'Innéair en retient</h2>
+					<div class="etape__texte">
+						<p>Une refonte en production avance par étapes que l'on peut nommer&nbsp;: retirer, renommer, extraire, faire cohabiter l'ancien et le nouveau, migrer, puis assurer la compatibilité. Un client que l'on ne contrôle pas, ici un téléphone déjà distribué sur le terrain, continue d'imposer ses règles au serveur longtemps après la refonte&nbsp;: chaque code de réponse devient une décision.</p>
+					</div>
+				</section>
+
+		</div>
+
+		<section class="band band--gradient" aria-labelledby="titre-suite">
+			<div class="wrap contact">
+				<div>
+					<h2 id="titre-suite">Votre plateforme est devenue difficile à faire évoluer&nbsp;?</h2>
+					<p>Innéair reprend des applications web en production et les fiabilise sans arrêter vos livraisons. Tout commence par un diagnostic de quatre à six jours, qui se termine par un plan chiffré.</p>
+					<p class="contact__actions">
+						<a class="button button--light" href="../index.html#contact">Demander un diagnostic</a>
+						<a class="text-link text-link--onDark" href="../index.html#realisations">Voir les autres réalisations</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap site-footer__grid">
+			<div>
+				<p class="logo logo--footer">
+					<img src="../images/inneair-icone-provisoire.svg" alt="Logo d'Innéair" width="32" height="32">
+					<span class="logo__word" aria-hidden="true"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+				</p>
+				<p class="site-footer__baseline">Mettez de l'oxygène dans vos applications web. Innéair les conçoit, les reprend et les fiabilise depuis 2008.</p>
+			</div>
+			<div>
+				<h2>Innéair</h2>
+				<ul>
+					<li><a href="../index.html#services">Services</a></li>
+					<li><a href="../index.html#reprise">Le diagnostic de reprise</a></li>
+					<li><a href="../index.html#realisations">Réalisations</a></li>
+					<li><a href="../index.html#produits">Produits</a></li>
+					<li><a href="../index.html#entreprise">L'entreprise</a></li>
+					<li><a href="../index.html#faq">Questions fréquentes</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Contact</h2>
+				<ul>
+					<li>102 impasse du Tacot</li>
+					<li>24660 Coulounieix-Chamiers</li>
+					<li><a href="tel:+33661459810">06&nbsp;61&nbsp;45&nbsp;98&nbsp;10</a></li>
+					<li><a href="mailto:vincent.clair@inneair.com">vincent.clair@inneair.com</a></li>
+					<li><a href="https://www.linkedin.com/company/inneair">Innéair sur LinkedIn</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Société</h2>
+				<ul>
+					<li>SARL au capital variable de 10&nbsp;000&nbsp;€</li>
+					<li>RCS Périgueux 508 310 299</li>
+					<li><a href="../mentions-legales.html">Mentions légales</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="wrap site-footer__legal">
+			<p>© 2008-2026 Innéair. Ce site ne dépose aucun cookie.</p>
+		</div>
+	</footer>
+</body>
+</html>
