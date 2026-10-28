@@ -136,7 +136,7 @@
 					<h2>Mesurer avant de simplifier</h2>
 					<aside class="encart" aria-label="À retenir">
 					<p><strong>−&nbsp;68&nbsp;%</strong>de stockage pour chaque entrée d'alerte</p>
-					<p><strong>33&nbsp;→&nbsp;85&nbsp;%</strong>de couverture des tests du service des sites réécrit</p>
+					<p><strong>3 fois moins</strong>de complexité cognitive pour le service des sites, réécrit par petits pas</p>
 					</aside>
 					<div class="etape__texte">
 						<p>Le moteur d'alertes prévient l'installateur quand un moteur franchit un nombre de cycles, rencontre trop d'obstacles ou signale une batterie faible. Écrit en 2018, il avait connu une vingtaine de bogues en un an, et chaque installateur pouvait personnaliser ses seuils. <strong>Avant de modifier le code, Innéair a interrogé la base de production</strong>&nbsp;: sur 5&nbsp;774 configurations, 48 s'écartaient des valeurs par défaut, soit moins de 1&nbsp;%. La personnalisation a donc disparu, et le moteur a été refondu autour de déclencheurs explicites.</p>
@@ -147,11 +147,11 @@
 				<section class="etape">
 					<h2>Une architecture événementielle qui tient la charge</h2>
 					<aside class="encart" aria-label="À retenir">
-					<p><strong>÷&nbsp;55</strong>appels vers un service cloud tiers, mesurés en test de charge</p>
-					<p><strong>100&nbsp;000</strong>requêtes en quatre minutes au pic de production, absorbées après l'ajout du cache</p>
+					<p><strong>55 fois moins</strong>d'appels vers un service cloud tiers, mesurés en test de charge</p>
+					<p><strong>100&nbsp;000</strong>requêtes en quatre minutes au pic de production, avec une latence stable</p>
 					</aside>
 					<div class="etape__texte">
-						<p>Le back-end de Serv-e-Go reçoit chaque jour de la plateforme IoT d'Overkiz, filiale du groupe Somfy, plusieurs centaines de milliers, voire des millions d'événements émis par les équipements des maisons connectées. Innéair a tenu le socle commun de ses micro-services&nbsp;: messagerie, cache, client HTTP et accès aux bases. Elle y a ajouté une bibliothèque de cache. Les tests de charge menés à cette occasion, calibrés à 10&nbsp;000 requêtes en quatre minutes, ont mesuré des appels vers un service cloud tiers divisés par 55. En production, où le pic observé atteignait 100&nbsp;000 requêtes en quatre minutes, le cache a résorbé le problème de charge, avec une latence stable pour les installateurs.</p>
+						<p>Le back-end de Serv-e-Go reçoit chaque jour de la plateforme IoT d'Overkiz, filiale du groupe Somfy, plusieurs centaines de milliers, voire des millions d'événements émis par les équipements des maisons connectées. Innéair a tenu le socle commun de ses micro-services&nbsp;: messagerie, cache, client HTTP et accès aux bases. Elle y a ajouté une bibliothèque de cache à trois niveaux&nbsp;: les requêtes identiques et simultanées sont dédupliquées, chaque pod garde en mémoire les réponses récentes, et un cache partagé sert tous les pods. Les tests de charge, calibrés à 10&nbsp;000 requêtes en quatre minutes, ont mesuré 55 fois moins d'appels vers un service cloud tiers. En production, où le pic observé atteignait 100&nbsp;000 requêtes en quatre minutes, la latence est restée stable pour les installateurs.</p>
 						<p>Quand Somfy a décidé de remplacer Pub/Sub par Kafka, <strong>Innéair a conçu dans ce socle l'abstraction qui a permis aux micro-services de changer de bus d'événements</strong>, par étapes livrées et testées. Elle a aussi préparé les micro-services à fonctionner dans plusieurs régions, pour le lancement du produit en Amérique du Nord&nbsp;: la plateforme est prête pour l'Europe, les États-Unis et l'Australie. Enfin, Innéair a créé un service qui vérifie, dans chaque environnement et chaque région, que chaque dépendance répond.</p>
 					</div>
 				</section>
@@ -159,7 +159,7 @@
 				<section class="etape">
 					<h2>Converger vers la plateforme du groupe et quitter Google Cloud</h2>
 					<aside class="encart" aria-label="À retenir">
-					<p><strong>−&nbsp;21&nbsp;%</strong>de code dans l'API en un an, ancien CMS et ancien SSO retirés</p>
+					<p><strong>10&nbsp;→&nbsp;5</strong>projets à migrer pour quitter Google Cloud, une fois les services en doublon supprimés ou fusionnés</p>
 					</aside>
 					<div class="etape__texte">
 						<p>À partir de 2023, Somfy a construit un back-office commun à ses produits connectés, pour remplacer un CMS confié à une agence. Innéair était co-responsable du lot qui reliait le back-end des installateurs à ce back-office. En 2025, l'équipe y a fait passer les appels de Serv-e-Go, puis Innéair a retiré l'ancien connecteur. Dans le même temps, elle a fait cohabiter l'ancien SSO et le nouveau fournisseur d'identité du groupe jusqu'à la bascule, avant de retirer l'ancien.</p>
