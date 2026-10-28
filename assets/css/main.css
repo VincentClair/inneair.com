@@ -4,7 +4,7 @@
 
 @font-face {
 	font-family: "Archivo";
-	src: url("../fonts/archivo-latin.woff2") format("woff2");
+	src: url("/assets/fonts/archivo-latin.woff2") format("woff2");
 	font-weight: 100 900;
 	font-stretch: 62% 125%;
 	font-display: swap;
@@ -195,6 +195,11 @@ h3 {
 }
 
 .site-header nav {
+	margin-left: auto;
+}
+
+/* En-tête sobre des pages de réalisation : le logo et le bouton de diagnostic, sans menu. */
+.site-header--sobre .site-header__action {
 	margin-left: auto;
 }
 
@@ -1963,6 +1968,10 @@ h3 {
 @media (max-width: 40rem) {
 	.site-header__action {
 		display: none;
+	}
+
+	.site-header--sobre .site-header__action {
+		display: inline-block;
 	}
 
 	.site-nav {
