@@ -478,6 +478,15 @@ h3 {
 	background: var(--color-mist);
 }
 
+/* Page de liste des réalisations : la bande commence directement par les cartes. */
+.band--liste {
+	padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.band--liste .cases {
+	margin-top: 0;
+}
+
 .band--ink {
 	background:
 		radial-gradient(44rem 30rem at 100% 0%, rgb(227 118 130 / 0.16), transparent 65%),
