@@ -87,7 +87,7 @@
 				</nav>
 				<p class="projet-titre__secteur">Logistique en Afrique de l'Ouest, 2019 à 2020</p>
 				<h1>KeyOpsTech : fiabiliser le suivi de colis d'une logistique hors ligne en Afrique de l'Ouest</h1>
-				<p class="projet-titre__chapo">KeyOpsTech équipait des compagnies de cars et des transporteurs de Côte d'Ivoire et du Sénégal pour suivre leurs colis de main en main&nbsp;; selon sa directrice générale, près de 200&nbsp;000 colis avaient été livrés ainsi dans quatre pays entre février 2018 et octobre 2019. De septembre 2019 à mars 2020, Innéair a mené le développement du back-end de la plateforme et la refonte du moteur qui reconstitue le parcours de chaque colis.</p>
+				<p class="projet-titre__chapo">KeyOpsTech équipait des compagnies de cars et des transporteurs de Côte d'Ivoire et du Sénégal pour suivre leurs colis de main en main&nbsp;; selon sa directrice générale, près de 200&nbsp;000 colis avaient été livrés ainsi dans quatre pays entre février 2018 et octobre 2019. De septembre 2019 à mars 2020, Innéair a tenu l'architecture du back-end de la plateforme, en a dirigé l'équipe et a conçu la refonte du moteur qui reconstitue le parcours de chaque colis.</p>
 			</div>
 		</div>
 
@@ -96,11 +96,10 @@
 			<dl class="fiche">
 				<div><dt>Client</dt><dd>KeyOpsTech, start-up lyonnaise de logistique, avec des filiales à Abidjan et à Dakar</dd></div>
 				<div><dt>Plateforme</dt><dd>KOTscan, l'application Android des guichetiers, chauffeurs et livreurs, et son back-end, qui tient l'état de chaque colis&nbsp;; paiement par Mobile Money</dd></div>
-				<div><dt>Intervention d'Innéair</dt><dd>Encadrement des développeurs du back-end, refonte du cycle de vie des colis, relecture et mises en production</dd></div>
+				<div><dt>Intervention d'Innéair</dt><dd>Architecture et direction de l'équipe du back-end, refonte du cycle de vie des colis, relecture et mises en production</dd></div>
 				<div class="fiche__large"><dt>Technologies</dt><dd><ul class="technos">
 					<li><span>Back-end</span> PHP, Symfony, Doctrine, Sonata Admin</li>
-					<li><span>Données</span> MySQL, Redis</li>
-					<li><span>Mobile</span> Android, Firebase</li>
+					<li><span>Données</span> MySQL, Redis, Firebase</li>
 					<li><span>Tests</span> PHPUnit, Newman</li>
 					<li><span>Déploiement</span> Docker, Kubernetes, Helm, Ansible, GitLab CI</li>
 				</ul></dd></div>
@@ -110,11 +109,10 @@
 					<h2>Reconstituer le parcours de chaque colis</h2>
 					<aside class="encart" aria-label="À retenir">
 						<p><strong>1&nbsp;classe</strong>par opération métier&nbsp;: elle écrit l'historique du colis, applique sa règle et publie un événement</p>
-						<p><strong>2&nbsp;lignes</strong>par action dans les contrôleurs d'événements, après la refonte</p>
 					</aside>
 					<div class="etape__texte">
 						<p>Chaque fois qu'un colis changeait de mains, les deux téléphones échangeaient des QR codes, et la responsabilité du colis passait de l'un à l'autre. Les téléphones travaillaient souvent sans réseau&nbsp;: ils envoyaient leurs événements plus tard, chacun de son côté. Le serveur recevait donc chaque transfert deux fois, parfois avant la création du colis, et c'était à lui de reconstituer le parcours de chaque colis et d'en tenir l'état. À l'arrivée d'Innéair, ces règles étaient dispersées entre un contrôleur, un abonné et un service, mêlées à l'envoi des SMS et à la détection des fraudes.</p>
-						<p>Innéair a écrit l'étude préalable et l'architecture cible de la refonte, puis l'a découpée en lots répartis entre trois développeurs. <strong>Elle en a conçu le cadre&nbsp;: chaque opération métier devient une classe</strong> qui écrit son entrée dans l'historique du colis, avec un statut de réussite ou d'échec, applique sa règle, puis publie un événement. Les notifications, la détection des fraudes et les opérations dérivées, comme la mise à disposition ou le départ en livraison, s'abonnent à ces événements. Innéair a écrit les dix premières opérations et aligné les statuts sur ceux de la page de suivi des clients&nbsp;; l'équipe a écrit les règles de transition, puis ses propres opérations. La refonte est partie en production en janvier 2020.</p>
+						<p>Innéair a écrit l'étude préalable et l'architecture cible de la refonte, puis l'a découpée en lots, confiés à trois développeurs dont elle a piloté le travail. <strong>Elle en a conçu le cadre&nbsp;: chaque opération métier devient une classe</strong> qui écrit son entrée dans l'historique du colis, avec un statut de réussite ou d'échec, applique sa règle, puis publie un événement. Les notifications, la détection des fraudes et les opérations dérivées, comme la mise à disposition ou le départ en livraison, s'abonnent à ces événements. Innéair a écrit les dix premières opérations et aligné les statuts sur ceux de la page de suivi des clients&nbsp;; sous son pilotage, l'équipe a écrit les règles de transition, puis ses propres opérations. La refonte est partie en production en janvier 2020.</p>
 					</div>
 				</section>
 
@@ -132,11 +130,11 @@
 				<section class="etape">
 					<h2>Alléger le modèle avant de refondre</h2>
 					<aside class="encart" aria-label="À retenir">
-						<p><strong>1&nbsp;base</strong>de données en moins&nbsp;: MongoDB, retirée du code et du déploiement</p>
+						<p><strong>1&nbsp;base</strong>de données en moins&nbsp;: MongoDB, retirée du code et de la production</p>
 					</aside>
 					<div class="etape__texte">
 						<p>Dès septembre 2019, Innéair a allégé le modèle. Elle a sorti les colis inconnus de la table des colis, où ils étaient enregistrés comme de faux colis, pour leur donner leur propre objet, avec une association automatique quand un seul colis correspond. Elle a aussi retiré les lots, les retours et les destructions de colis.</p>
-						<p>Elle a ensuite remplacé 221 lignes de routage maison par l'algorithme de Yen d'une bibliothèque déjà présente dans le projet, et retiré MongoDB du code et du déploiement.</p>
+						<p>Elle a ensuite remplacé un calcul de routes maison par l'algorithme de Yen d'une bibliothèque déjà présente dans le projet, et retiré MongoDB du code et de la production.</p>
 					</div>
 				</section>
 
@@ -144,11 +142,11 @@
 					<h2>Tester et livrer</h2>
 					<aside class="encart" aria-label="À retenir">
 						<p><strong>176&nbsp;→&nbsp;488</strong>tests unitaires pendant la mission</p>
-						<p><strong>100&nbsp;%</strong>des opérations du nouveau cadre couvertes par les tests</p>
+						<p><strong>14&nbsp;opérations</strong>dans le nouveau cadre, chacune avec son test unitaire</p>
 					</aside>
 					<div class="etape__texte">
-						<p>Innéair a encadré les quatre à six développeurs du back-end&nbsp;: elle relisait et fusionnait leur travail. À partir de janvier 2020, elle a lancé les mises en production à tour de rôle avec un développeur de l'équipe, en se synchronisant avec l'exploitation et l'équipe mobile.</p>
-						<p>Innéair et un développeur de l'équipe ont été les deux principaux auteurs des tests unitaires, passés de 176 à 488 pendant la mission&nbsp;; ils couvrent entièrement les opérations du nouveau cadre. Innéair a aussi monté Symfony en version 4.4 et PHPUnit en version 9.</p>
+						<p>Innéair dirigeait l'équipe du back-end, quatre personnes au plus en même temps, dont un ops&nbsp;: elle orientait la conception, relisait et fusionnait le travail de chacun. Elle a piloté toutes les mises en production du back-end, en se synchronisant avec l'exploitation et l'équipe mobile, et les a lancées elle-même à partir de janvier 2020.</p>
+						<p>Sous le pilotage d'Innéair, l'équipe a presque triplé ses tests unitaires, passés de 176 à 488 pendant la mission&nbsp;; chacune des quatorze opérations du nouveau cadre a son test. Innéair a aussi monté Symfony en version 4.4 et PHPUnit en version 9.</p>
 					</div>
 				</section>
 
