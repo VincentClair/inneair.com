@@ -15,7 +15,7 @@
 	<meta property="og:image" content="https://inneair.com/images/og/viaco.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta property="og:image:alt" content="Viaco : un périmètre de 4 fois la capacité de l&#x27;équipe, et la version 1.0 sortie à la date visée">
+	<meta property="og:image:alt" content="Viaco : la version 1.0 mise en production à la date visée, sans baisse de qualité, grâce à un découpage en lots proposé au CTO">
 	<meta name="twitter:card" content="summary_large_image">
 	<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="/assets/css/main.css">
@@ -87,7 +87,7 @@
 				</nav>
 				<p class="projet-titre__secteur">Conformité des sous-traitants du BTP, 2020 à 2021</p>
 				<h1>Viaco : une plateforme SaaS serverless du BTP menée jusqu'à sa version 1.0</h1>
-				<p class="projet-titre__chapo">Viaco, aujourd'hui une marque du groupe Once For All, numérise deux outils du chantier&nbsp;: la pré-qualification des sous-traitants et le panneau de chantier. Pendant quatorze mois, Innéair a encadré son équipe de développement&nbsp;: elle a restructuré l'API serverless de la plateforme, installé les tests et le processus de livraison, et mené l'équipe jusqu'à la version 1.0.</p>
+				<p class="projet-titre__chapo">Viaco, aujourd'hui une marque du groupe Once For All, numérise deux outils du chantier&nbsp;: la pré-qualification des sous-traitants et le panneau de chantier. Pendant quatorze mois, Innéair a dirigé son équipe de développement comme tech lead et Scrum Master&nbsp;: elle a restructuré l'API serverless de la plateforme, changé sa stratégie de tests, écrit son processus de livraison et mené l'équipe jusqu'à la version 1.0.</p>
 			</div>
 		</div>
 
@@ -96,7 +96,7 @@
 			<dl class="fiche">
 				<div><dt>Client</dt><dd>Viaco, plateforme SaaS B2B pour les donneurs d'ordre et les prestataires du BTP</dd></div>
 				<div><dt>Plateforme</dt><dd>Un questionnaire de conformité (loi Sapin 2, RSE) rempli une fois par chaque prestataire et pré-rempli à partir des données légales de son entreprise&nbsp;; un panneau de chantier consultable par QR code</dd></div>
-				<div><dt>Intervention d'Innéair</dt><dd>Encadrement de l'équipe de développement et rôle de Scrum Master, restructuration de l'API, tests et processus de livraison</dd></div>
+				<div><dt>Intervention d'Innéair</dt><dd>Tech lead et Scrum Master de l'équipe de développement, restructuration de l'API, stratégie de tests et processus de livraison</dd></div>
 				<div class="fiche__large"><dt>Technologies</dt><dd><ul class="technos">
 					<li><span>Services</span> Node.js, TypeScript, Serverless Framework</li>
 					<li><span>AWS</span> Lambda, API Gateway, SQS, S3</li>
@@ -111,44 +111,43 @@
 					<h2>Piloter l'équipe et tenir une date</h2>
 					<aside class="encart" aria-label="À retenir">
 						<p><strong>v1.0</strong>mise en production à la date visée</p>
-						<p><strong>4 fois</strong>la capacité de l'équipe&nbsp;: c'est ce que représentait le périmètre demandé</p>
 					</aside>
 					<div class="etape__texte">
-						<p>Innéair a rejoint Viaco en mai 2020 pour encadrer une équipe de quatre à cinq développeurs, sous la responsabilité du CTO, et tenir le rôle de Scrum Master. Elle animait les revues de sprint et les rétrospectives, et elle a écrit le processus de livraison de l'équipe&nbsp;: chaque mise en production passe par une copie de la production, suit un ordre de déploiement fixe et publie un changelog. Avant chaque chantier structurant, Innéair rédigeait une étude comparative, par exemple pour choisir entre une nouvelle version de l'API à côté de l'ancienne et une migration en place.</p>
-						<p>En mars 2021, Viaco attendait une nouvelle version pour convaincre plusieurs grands groupes du BTP, et le périmètre demandé représentait plus de quatre fois la capacité de l'équipe. <strong>Innéair a mesuré la vélocité réelle de l'équipe</strong>, posé les leviers possibles et préparé l'arbitrage avec le CTO&nbsp;: aucune baisse de qualité, un découpage en lots et une date tenable. La version 1.0 est partie en production à la date visée, le 8 avril 2021.</p>
+						<p>Innéair a rejoint Viaco en mai 2020 comme tech lead et Scrum Master, sous la responsabilité du CTO. Elle dirigeait une équipe de quatre à cinq développeurs&nbsp;: elle concevait avec eux, relisait et validait leur travail, et menait les entretiens techniques de recrutement. Elle tenait les revues de sprint et animait les rétrospectives. Elle a écrit le processus de livraison de l'équipe et réalisait les mises en production&nbsp;: chacune passe par une copie de la production, suit un ordre de déploiement fixe et publie un changelog. Avant chaque chantier structurant, Innéair rédigeait une étude comparative, par exemple pour choisir entre une nouvelle version de l'API à côté de l'ancienne et une migration en place.</p>
+						<p>En mars 2021, Viaco attendait une nouvelle version pour convaincre plusieurs grands groupes du BTP, et le périmètre demandé dépassait ce que l'équipe pouvait livrer à la date voulue. <strong>Innéair a mesuré la vélocité réelle de l'équipe</strong>, posé les leviers possibles et proposé au CTO un arbitrage, qu'il a accepté&nbsp;: aucune baisse de qualité, un découpage en lots et une date tenable. Innéair a mis la version 1.0 en production à la date visée, le 8 avril 2021.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Restructurer l'API serverless</h2>
 					<aside class="encart" aria-label="À retenir">
-						<p><strong>28&nbsp;→&nbsp;17</strong>fonctions Lambda, regroupées par ressource pour limiter les démarrages à froid</p>
+						<p><strong>27&nbsp;→&nbsp;17</strong>fonctions Lambda, regroupées par ressource pour limiter les démarrages à froid</p>
 					</aside>
 					<div class="etape__texte">
-						<p>La plateforme existait depuis 2019&nbsp;: une API serverless sur AWS, une application React et un back-office. En juillet 2020, <strong>Innéair a séparé les handlers HTTP des services métier</strong>, centralisé la gestion des erreurs et regroupé les fonctions par ressource, pour limiter les démarrages à froid et le nombre de fonctions à déployer. L'API est passée de 28 à 17 fonctions Lambda, et deux décisions d'architecture écrites expliquent la séparation et le regroupement.</p>
-						<p>En 2021, l'équipe a construit la nouvelle version de l'API. Innéair y a écrit la nouvelle API des pré-qualifications et la création directe de partenariats entre donneurs d'ordre et prestataires.</p>
+						<p>La plateforme existait depuis 2019&nbsp;: une API serverless sur AWS, une application React et un back-office. En juillet 2020, <strong>Innéair a séparé les handlers HTTP des services métier</strong>, centralisé la gestion des erreurs et regroupé les fonctions par ressource, pour limiter les démarrages à froid et le nombre de fonctions à déployer. L'API est passée de 27 à 17 fonctions Lambda, et deux décisions d'architecture écrites expliquent la séparation et le regroupement.</p>
+						<p>En 2021, Innéair a piloté la nouvelle version de l'API, de son router aux partenariats entre donneurs d'ordre et prestataires, et y a livré la nouvelle API des pré-qualifications et la création directe de partenariats. Elle a aussi piloté l'analyse des questionnaires au regard de la loi Sapin 2 et de la RSE, ainsi que leur pré-remplissage à partir des données légales, et conçu la note RSE.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Tester l'API sans dépendre de l'extérieur</h2>
 					<aside class="encart" aria-label="À retenir">
-						<p><strong>47&nbsp;→&nbsp;83&nbsp;%</strong>de couverture des tests de l'API par l'équipe, de juin 2020 à juillet 2021</p>
+						<p><strong>47&nbsp;→&nbsp;83&nbsp;%</strong>de couverture des tests de l'API, de juin 2020 à juillet 2021</p>
 					</aside>
 					<div class="etape__texte">
 						<p>Innéair a d'abord publié le rapport de couverture dans la chaîne d'intégration continue. Début 2021, elle a changé la stratégie de tests de l'API&nbsp;: <strong>les scénarios appellent les fonctions comme le ferait API Gateway</strong>, sur une base en mémoire, avec les services externes simulés. Ils ne dépendent plus de la base de développement partagée, et le changement a fait apparaître des écarts entre le modèle de données et la base, aussitôt corrigés.</p>
-						<p>Sur la durée de la mission, la couverture des tests de l'équipe est passée de 47&nbsp;% à 83&nbsp;%.</p>
+						<p>Sur toute la mission, Innéair a piloté l'effort de l'équipe&nbsp;: la couverture des tests de l'API est passée de 47&nbsp;% à 83&nbsp;%.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Des traitements asynchrones réutilisables</h2>
 					<aside class="encart" aria-label="À retenir">
-						<p><strong>11&nbsp;gabarits</strong>d'e-mails remplacés par des blocs composables, en français et en anglais</p>
+						<p><strong>8&nbsp;gabarits</strong>d'e-mails remplacés par des blocs composables, en français et en anglais</p>
 					</aside>
 					<div class="etape__texte">
 						<p>En 2021, <strong>Innéair a conçu les traitements asynchrones de la nouvelle version de l'API</strong>. Une demande d'export part dans une file SQS, le fichier est déposé sur S3 et l'utilisateur reçoit une notification. Les relances groupées ne rejouent que les messages en échec, et quatre consumers copiés reposent désormais sur une base commune.</p>
-						<p>Innéair a aussi refondu le service d'e-mails&nbsp;: des blocs composables, en français et en anglais, ont remplacé onze gabarits HTML complets.</p>
+						<p>Innéair a aussi refondu le service d'e-mails&nbsp;: des blocs composables, en français et en anglais, ont remplacé huit gabarits HTML complets.</p>
 					</div>
 				</section>
 
@@ -158,7 +157,7 @@
 						<p><strong>2&nbsp;commandes</strong>et Docker pour installer un poste de développement</p>
 					</aside>
 					<div class="etape__texte">
-						<p>Dès ses deux premières semaines, Innéair a outillé le poste de travail&nbsp;: son installation ne demande plus que Docker et deux commandes. Elle a aussi écrit la première décision d'architecture de l'équipe, celle qui décide de tracer les suivantes, puis la plupart de celles qui ont suivi. Elle a monté les versions de React, de Node.js, de Sequelize et de Serverless Framework, et achevé le retrait d'Elasticsearch, un service de moins à faire tourner.</p>
+						<p>Dès ses deux premières semaines, Innéair a outillé le poste de travail&nbsp;: son installation ne demande plus que Docker et deux commandes. Elle a aussi écrit la première décision d'architecture de l'équipe, celle qui décide de tracer les suivantes, puis la plupart de celles qui ont suivi. Elle a monté les versions de React, de Node.js, de Sequelize et de Serverless Framework, et piloté le retrait d'Elasticsearch, un service de moins à faire tourner.</p>
 						<p>À la fin de la mission, <strong>Innéair a passé le relais à un développeur de l'équipe</strong> et l'a accompagné&nbsp;: les décisions d'architecture, le processus de livraison et les études techniques étaient écrits et datés.</p>
 					</div>
 				</section>
