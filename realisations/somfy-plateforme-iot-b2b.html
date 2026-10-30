@@ -87,7 +87,7 @@
 				</nav>
 				<p class="projet-titre__secteur">Industrie et maison connectée, 2021 à 2025</p>
 				<h1>Reprise et évolution de la plateforme IoT des installateurs Somfy</h1>
-				<p class="projet-titre__chapo">Plus de 4&nbsp;000 installateurs professionnels utilisaient Serv-e-Go, la plateforme web avec laquelle Somfy leur permet de suivre, de diagnostiquer et de régler à distance les maisons connectées de leurs clients. Pendant quatre ans, Innéair en a assuré la référence technique&nbsp;: elle a repris un back-end construit par d'autres prestataires, l'a fait évoluer sans geler les livraisons et l'a préparé à rejoindre la plateforme du groupe.</p>
+				<p class="projet-titre__chapo">Plus de 4&nbsp;000 installateurs professionnels utilisaient Serv-e-Go, la plateforme web avec laquelle Somfy leur permet de suivre, de diagnostiquer et de régler à distance les maisons connectées de leurs clients, ou l'application TaHoma pro, qui partage son back-end. Pendant quatre ans, Innéair a dirigé l'équipe de développement de la plateforme et en a porté l'architecture&nbsp;: elle a repris un back-end construit par d'autres équipes, l'a fait évoluer sans geler les livraisons et l'a préparé à rejoindre la plateforme du groupe.</p>
 			</div>
 		</div>
 
@@ -96,7 +96,7 @@
 			<dl class="fiche">
 				<div><dt>Client</dt><dd>Somfy, services numériques pour les installateurs professionnels</dd></div>
 				<div><dt>Plateforme</dt><dd>Serv-e-Go et son back-end, partagé avec l'application mobile TaHoma pro et relié à la plateforme IoT d'Overkiz</dd></div>
-				<div><dt>Intervention d'Innéair</dt><dd>Référence technique, développement de l'interface et du back-end, pilotage technique de l'équipe de développement</dd></div>
+				<div><dt>Intervention d'Innéair</dt><dd>Constitution et direction de l'équipe de développement, architecture de la plateforme, développement de l'interface et du back-end</dd></div>
 				<div class="fiche__large"><dt>Technologies</dt><dd><ul class="technos">
 					<li><span>Interface</span> Angular, NgRx</li>
 					<li><span>Services</span> Node.js, TypeScript, NestJS</li>
@@ -104,7 +104,7 @@
 					<li><span>Données</span> MySQL, MongoDB, Redis</li>
 					<li><span>Identité</span> Keycloak</li>
 					<li><span>Livraison</span> Jenkins, GitLab CI</li>
-					<li><span>Cloud</span> Google Cloud, puis OVH</li>
+					<li><span>Cloud</span> Google Cloud, puis OVH, Kubernetes</li>
 				</ul></dd></div>
 			</dl>
 
@@ -115,7 +115,7 @@
 					<p><strong>Angular 12&nbsp;→&nbsp;20</strong>huit versions majeures franchies, logiciel en service</p>
 					</aside>
 					<div class="etape__texte">
-						<p>À l'arrivée d'Innéair, en septembre 2021, le back-end de Serv-e-Go avait près de quatre ans&nbsp;: une API et sept micro-services Node.js et TypeScript, construits par d'autres prestataires sur Google Cloud. De juin 2022 à février 2023, Innéair a porté seule le développement applicatif du produit. L'équipe a ensuite grandi jusqu'à quatre développeurs, et Innéair en a assuré le pilotage technique, au rythme des PI Planning de l'organisation SAFe de Somfy.</p>
+						<p>À l'arrivée d'Innéair, en septembre 2021, le back-end de Serv-e-Go avait près de quatre ans&nbsp;: une API et sept micro-services Node.js et TypeScript, construits par d'autres équipes sur Google Cloud. De juin 2022 à février 2023, Innéair a porté seule le développement applicatif du produit. Innéair a ensuite constitué l'équipe de développement, en menant les recrutements, et a dirigé les trois développeurs arrivés en 2023 et 2024, au rythme des PI Planning de l'organisation SAFe de Somfy.</p>
 						<p><strong>Innéair répondait de chaque livraison</strong>&nbsp;: elle relisait le travail de l'équipe et publiait la plupart des versions de l'interface, de l'API et des micro-services. L'interface est passée d'Angular 12 à Angular 20 sans que le logiciel soit arrêté ni ses fonctionnalités gelées. En 2023, une montée de trois versions, accompagnée du remplacement de quatre bibliothèques, a ramené la compilation de l'interface de 65 à 13&nbsp;secondes et son poids de 3,4 à 1,5&nbsp;Mo, mesurés avec des réponses serveur simulées.</p>
 					</div>
 				</section>
@@ -128,42 +128,42 @@
 					</aside>
 					<div class="etape__texte">
 						<p>Chaque nouvel équipement Somfy devait être décrit à la main dans plusieurs dépôts, à partir des classeurs tenus par les équipes produit, et chaque intégration demandait quatre jours de développement. En 2022, <strong>Innéair a automatisé cette procédure</strong>&nbsp;: des scripts génèrent désormais, depuis ces classeurs, les profils, les spécifications et les définitions d'interface des équipements. L'outillage a demandé une douzaine de jours, et une intégration ne prend plus qu'une heure environ.</p>
-						<p>L'équipe a fait passer 83 équipements par cette chaîne, dont les produits Zigbee. En 2025, Innéair l'a sortie dans un dépôt dédié, pour que les mises à jour des produits ne dépendent plus des applications.</p>
+						<p>En 2023, cette automatisation a fait gagner au moins vingt jours de développement sur l'intégration de produits io-homecontrol, le protocole radio de Somfy. Le produit prend aujourd'hui en charge 130 équipements io et leurs 167 versions de firmware, ainsi que les équipements Zigbee, de façon générique. En 2025, Innéair a sorti la chaîne de génération dans un dépôt dédié, pour que les mises à jour des produits ne dépendent plus des applications.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Mesurer avant de simplifier</h2>
 					<aside class="encart" aria-label="À retenir">
-					<p><strong>−&nbsp;68&nbsp;%</strong>de stockage pour chaque entrée d'alerte</p>
+					<p><strong>−&nbsp;68&nbsp;%</strong>de place pour chaque enregistrement de l'historique des alertes</p>
 					<p><strong>3 fois moins</strong>de complexité cognitive pour le service des sites, réécrit par petits pas</p>
 					</aside>
 					<div class="etape__texte">
 						<p>Le moteur d'alertes prévient l'installateur quand un moteur franchit un nombre de cycles, rencontre trop d'obstacles ou signale une batterie faible. Écrit en 2018, il avait connu une vingtaine de bogues en un an, et chaque installateur pouvait personnaliser ses seuils. <strong>Avant de modifier le code, Innéair a interrogé la base de production</strong>&nbsp;: sur 5&nbsp;774 configurations, 48 s'écartaient des valeurs par défaut, soit moins de 1&nbsp;%. La personnalisation a donc disparu, et le moteur a été refondu autour de déclencheurs explicites.</p>
-						<p>Chaque entrée d'alerte occupe désormais 68&nbsp;% de place en moins. Multiplié par le nombre d'équipements, ce gain allège la mémoire, les échanges réseau et le stockage, notamment pour la liste des alertes à traiter que reçoit chaque installateur. Début 2023, Innéair a réécrit par petits pas le micro-service des sites&nbsp;: mesurées avant et après, sa complexité cognitive a baissé des deux tiers et la couverture de ses tests est passée de 33&nbsp;% à 85&nbsp;%.</p>
+						<p>D'après le calcul fait sur le nouveau format, chaque enregistrement de l'historique des alertes occupe désormais 68&nbsp;% de place en moins. Multiplié par le nombre d'équipements, ce gain allège la mémoire, les échanges réseau et le stockage. Début 2023, Innéair a réécrit par petits pas le micro-service des sites&nbsp;: mesurées avant et après, sa complexité cognitive a baissé des deux tiers et la couverture de ses tests est passée de 33&nbsp;% à 85&nbsp;%. Sur quatre ans, la complexité des micro-services est restée stable alors que les fonctionnalités se multipliaient, et des micro-services ont même été supprimés.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Une architecture événementielle qui tient la charge</h2>
 					<aside class="encart" aria-label="À retenir">
-					<p><strong>55 fois moins</strong>d'appels vers un service cloud tiers, mesurés en test de charge</p>
+					<p><strong>55 fois moins</strong>d'appels vers le back-office commun, et 8 fois moins vers la plateforme IoT, en test de charge</p>
 					<p><strong>100&nbsp;000</strong>requêtes en quatre minutes au pic de production, avec une latence stable</p>
 					</aside>
 					<div class="etape__texte">
-						<p>Le back-end de Serv-e-Go reçoit chaque jour de la plateforme IoT d'Overkiz, filiale du groupe Somfy, plusieurs centaines de milliers, voire des millions d'événements émis par les équipements des maisons connectées. Innéair a tenu le socle commun de ses micro-services&nbsp;: messagerie, cache, client HTTP et accès aux bases. Elle y a ajouté une bibliothèque de cache à trois niveaux&nbsp;: les requêtes identiques et simultanées sont dédupliquées, chaque pod garde en mémoire les réponses récentes, et un cache partagé sert tous les pods. Les tests de charge, calibrés à 10&nbsp;000 requêtes en quatre minutes, ont mesuré 55 fois moins d'appels vers un service cloud tiers. En production, où le pic observé atteignait 100&nbsp;000 requêtes en quatre minutes, la latence est restée stable pour les installateurs.</p>
-						<p>Quand Somfy a décidé de remplacer Pub/Sub par Kafka, <strong>Innéair a conçu dans ce socle l'abstraction qui a permis aux micro-services de changer de bus d'événements</strong>, par étapes livrées et testées. Elle a aussi préparé les micro-services à fonctionner dans plusieurs régions, pour le lancement du produit en Amérique du Nord&nbsp;: la plateforme est prête pour l'Europe, les États-Unis et l'Australie. Enfin, Innéair a créé un service qui vérifie, dans chaque environnement et chaque région, que chaque dépendance répond.</p>
+						<p>Le back-end de Serv-e-Go reçoit chaque jour de la plateforme IoT d'Overkiz, filiale du groupe Somfy, plusieurs centaines de milliers, voire des millions d'événements émis par les équipements des maisons connectées. Innéair a tenu le socle commun de ses micro-services&nbsp;: messagerie, cache, client HTTP et accès aux bases. Elle y a ajouté une bibliothèque de cache à trois niveaux&nbsp;: les requêtes identiques et simultanées sont dédupliquées, chaque pod garde en mémoire les réponses récentes, et un cache partagé sert tous les pods. Calibré à 10&nbsp;000 requêtes en quatre minutes, le test de charge a mesuré huit fois moins d'appels vers la plateforme IoT et 55 fois moins vers le back-office commun du groupe. En production, où le pic observé atteignait 100&nbsp;000 requêtes en quatre minutes, la latence est restée stable pour les installateurs.</p>
+						<p>Somfy a choisi de remplacer Pub/Sub par Kafka, puis le Datastore de Google par MongoDB. Innéair a porté ces chantiers et obtenu, avec le soutien de l'exploitation et des autres tech leads, qu'ils passent avant de nouvelles fonctionnalités, pour ne pas buter sur eux au dernier moment de la migration. <strong>Elle a conçu dans ce socle l'abstraction qui a permis aux micro-services de changer de bus d'événements</strong>, par étapes livrées et testées. Dès la fin de 2022, Innéair avait aussi mis en place, avec l'exploitation, une production répartie sur plusieurs régions, qui a servi au lancement du produit en Amérique du Nord en 2024, puis en Australie en 2025.</p>
 					</div>
 				</section>
 
 				<section class="etape">
 					<h2>Converger vers la plateforme du groupe et quitter Google Cloud</h2>
 					<aside class="encart" aria-label="À retenir">
-					<p><strong>10&nbsp;→&nbsp;5</strong>projets à migrer pour quitter Google Cloud, une fois les services en doublon supprimés ou fusionnés</p>
+					<p><strong>8 environnements</strong>vérifiés avant les déploiements, en Europe, aux États-Unis et en Australie</p>
 					</aside>
 					<div class="etape__texte">
 						<p>À partir de 2023, Somfy a construit un back-office commun à ses produits connectés, pour remplacer un CMS confié à une agence. Innéair était co-responsable du lot qui reliait le back-end des installateurs à ce back-office. En 2025, l'équipe y a fait passer les appels de Serv-e-Go, puis Innéair a retiré l'ancien connecteur. Dans le même temps, elle a fait cohabiter l'ancien SSO et le nouveau fournisseur d'identité du groupe jusqu'à la bascule, avant de retirer l'ancien.</p>
-						<p>La même année, Somfy a engagé le départ de Google Cloud vers OVH. <strong>Innéair a proposé de supprimer ou de fusionner les micro-services qui faisaient doublon avec le back-office commun</strong>, pour ramener de dix à cinq le nombre de projets à migrer, et la proposition a été validée. Chaque service supprimé est un service de moins à migrer, à tester et à exploiter, et les utilisateurs comme les sites n'ont plus qu'une seule source. Pour supprimer le service des sites, Innéair a fait adopter un calcul déterministe des identifiants, appliqué une fois pour toutes avant la bascule, plutôt que des tables de correspondance à maintenir. Elle a enfin piloté une analyse de chaque dépôt, rédigée par une IA sous sa supervision puis relue, qui a servi à ordonner la migration et les tests.</p>
+						<p>La même année, Somfy a engagé le départ de Google Cloud vers OVH, et <strong>Innéair a piloté cette migration pour Serv-e-Go</strong>. Une analyse de chaque dépôt, rédigée par une IA sous sa supervision puis relue, a servi à ordonner la migration et les tests. Elle a proposé de retirer, plutôt que de migrer, les micro-services dont le back-office commun reprenait le rôle, et la proposition a été validée&nbsp;: chaque service retiré est un service de moins à migrer, à tester et à exploiter, et les sites n'ont plus qu'une seule source. Retirer le service des sites imposait de passer aux identifiants du back-office commun&nbsp;: Innéair a fait adopter une migration unique des données par un script, avant la bascule, plutôt que des doubles identifiants à maintenir pendant des mois dans tous les services. Pour sécuriser les déploiements, elle a enfin créé un service qui vérifie les connexions et les secrets de chaque dépendance dans les huit environnements, en Europe, aux États-Unis et en Australie.</p>
 					</div>
 				</section>
 
