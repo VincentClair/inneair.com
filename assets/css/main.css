@@ -746,26 +746,6 @@ h3 {
 	transform: rotate(-45deg);
 }
 
-.service--lead {
-	background:
-		radial-gradient(22rem 16rem at 100% 0%, rgb(227 118 130 / 0.28), transparent 70%),
-		var(--color-ink);
-	color: var(--color-paper);
-	box-shadow: 0 1.5rem 3rem -1.5rem rgb(42 29 53 / 0.55);
-}
-
-.service--lead :is(h2, h3) + p {
-	color: var(--color-on-ink);
-}
-
-.service--lead li {
-	border-top-color: rgb(255 255 255 / 0.16);
-}
-
-.service--lead li::before {
-	border-color: var(--color-coral);
-}
-
 .service__more {
 	margin-top: auto;
 	padding-top: 1.6rem;
@@ -781,10 +761,6 @@ h3 {
 
 .service:has(.service__more a):hover {
 	box-shadow: 0 1.25rem 2.5rem -1.5rem rgb(42 29 53 / 0.35);
-}
-
-.service--lead:has(.service__more a):hover {
-	box-shadow: 0 1.75rem 3.5rem -1.5rem rgb(42 29 53 / 0.8);
 }
 
 .service:has(.service__more a:focus-visible) {
