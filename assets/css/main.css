@@ -959,12 +959,35 @@ h3 {
 /* Réalisations */
 
 .case {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding: 1.75rem;
 	background: rgb(255 255 255 / 0.05);
 	border-radius: var(--radius);
 	scroll-margin-top: calc(var(--header-height) + 1rem);
+	transition: background-color 0.15s ease;
+}
+
+/* La carte entière mène au projet : le lien « Lire le projet » s'étend à toute sa surface. */
+.case__more a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: var(--radius);
+}
+
+.case:has(.case__more a):hover {
+	background-color: rgb(255 255 255 / 0.09);
+}
+
+.case:has(.case__more a:focus-visible) {
+	outline: 2px solid var(--color-coral);
+	outline-offset: 3px;
+}
+
+.case__more a:focus-visible {
+	outline: none;
 }
 
 .case__figure {
