@@ -1720,6 +1720,11 @@ h3 {
 	opacity: 0.42;
 }
 
+/* Logo plus haut que large : un peu plus de hauteur pour garder la même présence. */
+.fiche__logos img.is-tall {
+	max-height: 2.1rem;
+}
+
 .technos {
 	display: flex;
 	flex-wrap: wrap;
