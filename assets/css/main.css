@@ -777,6 +777,10 @@ h3 {
 	border-radius: var(--radius);
 }
 
+.service:has(.service__more a):hover {
+	box-shadow: 0 1.25rem 2.5rem -1.5rem rgb(42 29 53 / 0.35);
+}
+
 .service--lead:has(.service__more a):hover {
 	box-shadow: 0 1.75rem 3.5rem -1.5rem rgb(42 29 53 / 0.8);
 }
