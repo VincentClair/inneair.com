@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://inneair.com/</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
+	</url>
+	<url>
+		<loc>https://inneair.com/services/reprise-application-web.html</loc>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/</loc>
@@ -10,11 +14,11 @@
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/somfy-plateforme-iot-b2b.html</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/viaco-plateforme-saas-btp.html</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/keyopstech-suivi-colis-hors-ligne.html</loc>
@@ -22,15 +26,15 @@
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/groupe-361-alm-avis-clients.html</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/jeff-de-bruges-extranet-boutiques.html</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/loyalty-company-plateforme-fidelisation.html</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/realisations/niveales-medias-cms-multi-sites.html</loc>
@@ -38,10 +42,10 @@
 	</url>
 	<url>
 		<loc>https://inneair.com/entreprise/</loc>
-		<lastmod>2026-10-30</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 	<url>
 		<loc>https://inneair.com/mentions-legales.html</loc>
-		<lastmod>2026-10-29</lastmod>
+		<lastmod>2026-10-31</lastmod>
 	</url>
 </urlset>
