@@ -850,13 +850,6 @@ h3 {
 
 /* L'interlocuteur et les engagements */
 
-.founder {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-	align-items: start;
-	gap: clamp(2rem, 5vw, 4.5rem);
-}
-
 .founder__intro > p {
 	max-width: 36rem;
 	margin-top: 1.1rem;
@@ -1922,7 +1915,6 @@ h3 {
 	}
 
 	.hero__grid,
-	.founder,
 	.faq,
 	.contact,
 	.case--featured,
