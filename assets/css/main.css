@@ -1703,6 +1703,23 @@ h3 {
 	grid-column: 1 / -1;
 }
 
+/* Logos des grands comptes sur les pages de cas : discrets, dans le même gris que sur l'accueil. */
+.fiche__logos {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem 2rem;
+	margin-top: 0.6rem;
+}
+
+.fiche__logos img {
+	width: auto;
+	height: auto;
+	max-width: 8rem;
+	max-height: 1.5rem;
+	opacity: 0.42;
+}
+
 .technos {
 	display: flex;
 	flex-wrap: wrap;
