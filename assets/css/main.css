@@ -701,7 +701,6 @@ h3 {
 }
 
 .service {
-	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
@@ -766,19 +765,6 @@ h3 {
 
 .service--lead li::before {
 	border-color: var(--color-coral);
-}
-
-.service__tag {
-	position: absolute;
-	top: 2rem;
-	right: 2rem;
-	padding: 0.3rem 0.75rem;
-	background: var(--color-coral);
-	color: var(--color-ink);
-	border-radius: 999px;
-	font-size: 0.8125rem;
-	font-weight: 660;
-	line-height: 1.2;
 }
 
 .service__more {
@@ -1946,11 +1932,6 @@ h3 {
 	.contact__card,
 	.proof {
 		padding-inline: 1.5rem;
-	}
-
-	.service__tag {
-		top: 1.5rem;
-		right: 1.5rem;
 	}
 
 	.quote::before {
