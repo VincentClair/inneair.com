@@ -196,29 +196,17 @@
 			</div>
 		</section>
 
-		<section class="band band--mist" id="technologies" aria-labelledby="titre-technologies">
-			<div class="wrap">
-				<h2 id="titre-technologies">Technologies et montées de version</h2>
-				<p class="band__intro">Innéair reprend des applications écrites en Node.js, TypeScript et Angular, ainsi que des applications PHP sous Symfony. Les montées de version du socle font partie de la reprise, et elles sont menées pendant que l'application reste en service.</p>
-				<ul class="puces">
-					<li>Chez Somfy, l'interface est passée d'Angular 12 à Angular 20 sans que le logiciel soit arrêté ni ses fonctionnalités gelées. <a class="text-link" href="/realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></li>
-					<li>Chez Groupe 361, Innéair a repris ALM alors que sa migration vers Symfony 4 était en cours, puis a résorbé les avertissements de dépréciation hérités de cette migration. <a class="text-link" href="/realisations/groupe-361-alm-avis-clients.html">Lire le projet ALM</a></li>
-					<li>Chez KeyOpsTech, Innéair a allégé le modèle de données avant de refondre le moteur de suivi des colis, et a retiré MongoDB du code et de la production. <a class="text-link" href="/realisations/keyopstech-suivi-colis-hors-ligne.html">Lire le projet KeyOpsTech</a></li>
-				</ul>
-			</div>
-		</section>
-
 		<section class="band band--ink" id="reprises" aria-labelledby="titre-reprises">
 			<div class="wrap">
 				<h2 id="titre-reprises">Des reprises menées par Innéair</h2>
-				<p class="band__intro">Les chiffres ont été mesurés sur place.</p>
+				<p class="band__intro">Les montées de version du socle font partie de la reprise, et elles sont menées pendant que l'application reste en service. Les chiffres ont été mesurés sur place.</p>
 
 				<div class="cases">
 
 					<article class="case">
 						<p class="case__sector">Industrie et maison connectée, 2021 à 2025</p>
 						<h3>Somfy</h3>
-						<p>Innéair a repris et fait évoluer pendant quatre ans, sans interrompre les livraisons, la plateforme IoT des installateurs professionnels, dont les micro-services Node.js reçoivent chaque jour des centaines de milliers d'événements.</p>
+						<p>Innéair a repris et fait évoluer pendant quatre ans, sans interrompre les livraisons, la plateforme IoT des installateurs professionnels, dont les micro-services Node.js reçoivent chaque jour des centaines de milliers d'événements. Son interface est passée d'Angular 12 à Angular 20 sans que le logiciel soit arrêté.</p>
 						<ul class="case__measures">
 							<li><strong>0 bogue</strong> remonté par le Product Owner sur le moteur d'alertes, cœur métier de la plateforme, depuis sa refonte, contre une vingtaine en un an avant</li>
 							<li><strong>55 fois moins</strong> d'appels vers le back-office commun en test de charge, grâce à un cache à trois niveaux</li>
@@ -229,7 +217,7 @@
 					<article class="case">
 						<p class="case__sector">Avis clients et e-réputation, 2018 à 2019</p>
 						<h3>ALM, Groupe 361</h3>
-						<p>Innéair a dirigé l'équipe de développement d'ALM, la plateforme d'avis clients que Groupe 361 édite pour des marques organisées en réseau, l'a remise en état de livrer et a mené sa version 6 jusqu'à la mise en production.</p>
+						<p>Innéair a dirigé l'équipe de développement d'ALM, la plateforme d'avis clients que Groupe 361 édite pour des marques organisées en réseau. Reprise en pleine migration vers Symfony 4, la plateforme a été remise en état de livrer, et sa version 6 a été menée jusqu'à la mise en production.</p>
 						<ul class="case__measures">
 							<li><strong>1&nbsp;h&nbsp;50&nbsp;→&nbsp;15&nbsp;min</strong> pour exécuter la suite de tests automatisés</li>
 							<li><strong>52 cas</strong> de recette, rejoués jusqu'à ce qu'aucun ne soit plus en échec</li>
@@ -265,8 +253,8 @@
 						<p>Pas d'un seul coup. Innéair ne propose pas de réécriture complète avec gel des fonctionnalités&nbsp;: l'application évolue par petits incréments pendant qu'elle est fiabilisée. Une partie du code n'est réécrite ou restructurée qu'une fois couverte par des tests automatisés, et le plan remis à la fin du diagnostic dit par où commencer. <a class="text-link" href="/realisations/somfy-plateforme-iot-b2b.html">Chez Somfy</a>, le moteur d'alertes, cœur métier de Serv-e-Go, avait connu une vingtaine de bogues en un an. Innéair l'a refondu fin 2022, après avoir mesuré l'usage réel de ses réglages en production, et le Product Owner n'y a plus remonté aucun bogue depuis.</p>
 					</details>
 					<details>
-						<summary>Quelles technologies Innéair reprend-elle&nbsp;?</summary>
-						<p>Nous reprenons des applications écrites en Node.js, TypeScript et Angular, ainsi que des applications PHP sous Symfony, y compris du code legacy. Le diagnostic dit si une reprise est raisonnable avant tout engagement plus long.</p>
+						<summary>Innéair peut-elle reprendre une application écrite dans notre technologie&nbsp;?</summary>
+						<p>Les reprises menées jusqu'ici portent sur des applications écrites en Node.js, TypeScript et Angular, ou en PHP sous Symfony, y compris du code legacy. Pour une autre technologie, un premier échange sans engagement permet de savoir si une reprise par Innéair est raisonnable.</p>
 					</details>
 					<details>
 						<summary>Combien coûte un diagnostic&nbsp;?</summary>
