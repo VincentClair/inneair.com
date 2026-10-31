@@ -198,6 +198,11 @@ h3 {
 	margin-left: auto;
 }
 
+/* Libellé court du bouton de contact, affiché seulement sur mobile. */
+.libelle-court {
+	display: none;
+}
+
 /* Menu mobile, sans JavaScript : le bouton ouvre un popover vide et invisible
    qui sert d'état. Tant qu'il est ouvert, la navigation s'affiche sous l'en-tête.
    Un toucher sur un lien, hors du popover, le referme nativement, comme la touche Échap. */
@@ -2027,25 +2032,21 @@ h3 {
 	}
 }
 
-/* Sous 640 px, le bouton de diagnostic quitte l'en-tête et rejoint le menu. */
+/* Sous 640 px, le bouton de contact reste dans l'en-tête, avec un libellé court. */
 @media (max-width: 40rem) {
-	.site-header__action {
+	.site-header__row {
+		gap: 0.75rem;
+	}
+
+	.site-header__action .libelle-long {
 		display: none;
+	}
+
+	.site-header__action .libelle-court {
+		display: inline;
 	}
 
 	.site-nav {
 		padding-bottom: 1.5rem;
-	}
-
-	.site-nav .site-nav__action {
-		display: block;
-		padding-top: 1rem;
-		border-top: 0;
-	}
-
-	.site-nav .button {
-		display: inline-block;
-		padding: 0.85rem 1.4rem;
-		font-size: 1rem;
 	}
 }
