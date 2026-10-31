@@ -198,11 +198,6 @@ h3 {
 	margin-left: auto;
 }
 
-/* En-tête sobre des pages de réalisation : le logo et le bouton de diagnostic, sans menu. */
-.site-header--sobre .site-header__action {
-	margin-left: auto;
-}
-
 /* Menu mobile, sans JavaScript : le bouton ouvre un popover vide et invisible
    qui sert d'état. Tant qu'il est ouvert, la navigation s'affiche sous l'en-tête.
    Un toucher sur un lien, hors du popover, le referme nativement, comme la touche Échap. */
@@ -1970,10 +1965,6 @@ h3 {
 @media (max-width: 40rem) {
 	.site-header__action {
 		display: none;
-	}
-
-	.site-header--sobre .site-header__action {
-		display: inline-block;
 	}
 
 	.site-nav {

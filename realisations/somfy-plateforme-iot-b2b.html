@@ -64,12 +64,24 @@
 <body>
 	<a class="skip-link" href="#contenu">Aller au contenu</a>
 
-	<header class="site-header site-header--sobre">
+	<header class="site-header">
+		<div class="menu-etat" id="menu-etat" popover aria-hidden="true"></div>
 		<div class="wrap site-header__row">
 			<a class="logo" href="/" aria-label="Innéair, retour à l'accueil">
 				<img src="/images/inneair-icone.svg" alt="Logo d'Innéair" width="36" height="36">
 				<span class="logo__word"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
 			</a>
+			<button class="menu-toggle" type="button" popovertarget="menu-etat" aria-controls="navigation">Menu</button>
+			<nav id="navigation" aria-label="Navigation principale">
+				<ul class="site-nav">
+					<li><a href="/#services">Services</a></li>
+					<li><a href="/#reprise">Diagnostic</a></li>
+					<li><a href="/realisations/">Réalisations</a></li>
+					<li><a href="/entreprise/">L'entreprise</a></li>
+					<li><a href="/#faq">Questions</a></li>
+					<li class="site-nav__action"><a class="button" href="/#contact">Demander un diagnostic</a></li>
+				</ul>
+			</nav>
 			<a class="button button--small site-header__action" href="/#contact">Demander un diagnostic</a>
 		</div>
 	</header>
