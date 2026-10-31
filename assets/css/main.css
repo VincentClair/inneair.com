@@ -696,11 +696,13 @@ h3 {
 }
 
 .service {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
 	background: var(--color-paper);
 	border-radius: var(--radius);
+	transition: box-shadow 0.15s ease;
 }
 
 .service__icon {
@@ -765,6 +767,27 @@ h3 {
 .service__more {
 	margin-top: auto;
 	padding-top: 1.6rem;
+}
+
+/* Une carte de service qui a sa page est cliquable sur toute sa surface, comme les cartes de cas. */
+.service__more a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: var(--radius);
+}
+
+.service--lead:has(.service__more a):hover {
+	box-shadow: 0 1.75rem 3.5rem -1.5rem rgb(42 29 53 / 0.8);
+}
+
+.service:has(.service__more a:focus-visible) {
+	outline: 2px solid var(--color-coral);
+	outline-offset: 3px;
+}
+
+.service__more a:focus-visible {
+	outline: none;
 }
 
 /* La reprise : trois étapes, une vraie séquence, donc numérotée.
