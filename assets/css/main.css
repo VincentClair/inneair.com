@@ -478,7 +478,8 @@ h3 {
 	padding-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
-.band--liste .cases {
+.band--liste .cases,
+.band--liste .services {
 	margin-top: 0;
 }
 
@@ -709,13 +710,14 @@ h3 {
 	width: 3rem;
 }
 
+.service h2,
 .service h3 {
 	margin-top: 1.4rem;
 	font-size: 1.5rem;
 	font-stretch: 106%;
 }
 
-.service h3 + p {
+.service :is(h2, h3) + p {
 	margin-top: 0.75rem;
 	color: var(--color-ink-soft);
 }
@@ -752,7 +754,7 @@ h3 {
 	box-shadow: 0 1.5rem 3rem -1.5rem rgb(42 29 53 / 0.55);
 }
 
-.service--lead h3 + p {
+.service--lead :is(h2, h3) + p {
 	color: var(--color-on-ink);
 }
 
