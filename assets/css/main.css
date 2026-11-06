@@ -1222,7 +1222,7 @@ h3 {
 	object-fit: cover;
 }
 
-/* Marques sur fond transparent (Origami, Ikima 1) : sans tuile, un peu plus grandes. */
+/* Marques sur fond transparent (Origami, Axone, Ikima 1) : sans tuile, un peu plus grandes. */
 .product__icon--mark {
 	width: 4rem;
 	height: 4rem;
@@ -1293,6 +1293,11 @@ h3 {
 	padding: 2rem;
 	background: var(--color-paper);
 	border-radius: var(--radius);
+}
+
+/* Une carte seule dans la grille des produits (Axone) : sur toute la largeur. */
+.products .product--wide {
+	grid-column: 1 / -1;
 }
 
 /* Témoignages */
