@@ -507,6 +507,11 @@ h3 {
 	color: var(--color-ink-soft);
 }
 
+/* Paragraphe qui suit une liste ou une grille dans la même bande. */
+.band__intro--suite {
+	margin-top: 2.5rem;
+}
+
 .band--ink .band__intro {
 	color: var(--color-on-ink);
 }
@@ -699,6 +704,15 @@ h3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 1.5rem;
 	margin-top: 3rem;
+}
+
+/* Deux cartes sans pictogramme : deux colonnes, titre en haut de carte. */
+.services--deux {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.services--deux .service h3 {
+	margin-top: 0;
 }
 
 .service {
@@ -895,6 +909,11 @@ h3 {
 .commitments {
 	display: grid;
 	gap: 1rem;
+}
+
+/* Une liste d'engagements qui suit une introduction prend de l'air. */
+.band__intro + .commitments {
+	margin-top: 2rem;
 }
 
 .commitment {
