@@ -11,28 +11,26 @@
 }
 
 :root {
-	/* Couleurs reprises du site en ligne */
-	--color-accent: #e37682;
-	--color-plum: #935d8c;
-	--color-violet: #5f4d93;
-
-	/* Déclinaisons */
-	--color-accent-light: #ec95a0; /* survol du bouton corail */
-	--color-coral-pale: #f2b0b8; /* corail pâle, lisible sur fond sombre */
-	--color-coral-deep: #b03f53; /* texte corail sur fond clair : contraste 4,9 sur le rose pâle, 5,3 sur le crème */
-	--color-ink-hover: #4b3c7a;
+	/* Couleurs */
+	--color-bg: #fbf7f3;
+	--color-bg-alt: #f5ece6;
+	--color-surface: #ffffff;
+	--color-line: #eadcd4;
 	--color-lilac: #d4c2d9;
 	--color-ink: #2a1d35; /* aubergine : texte et bandes sombres */
-	--color-ink-deep: #1f1528; /* fond du pied de page */
-	--color-ink-light: #33213f; /* fin du dégradé des bandes sombres */
+	--color-violet: #5f4d93;
+	--color-plum: #935d8c;
+	--color-ink-hover: #4b3c7a;
 	--color-ink-soft: #5e5066;
+	--color-coral-deep: #b03f53; /* texte corail sur fond clair : contraste 4,9 sur le rose pâle, 5,3 sur le crème */
+	--color-ink-light: #33213f; /* fin du dégradé des bandes sombres */
+	--color-ink-deep: #1f1528; /* fond du pied de page */
 	--color-on-ink: #d9cde0;
 	--color-on-ink-strong: #f3edf7;
 	--color-on-ink-muted: #bcaec6;
-	--color-surface: #ffffff;
-	--color-bg: #fbf7f3;
-	--color-bg-alt: #f5ece6;
-	--color-line: #eadcd4;
+	--color-accent: #e37682;
+	--color-coral-pale: #f2b0b8; /* corail pâle, lisible sur fond sombre */
+	--color-accent-light: #ec95a0; /* survol du bouton corail */
 	--gradient-brand: linear-gradient(120deg, var(--color-accent) 0%, var(--color-plum) 52%, var(--color-violet) 100%);
 
 	--font: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
