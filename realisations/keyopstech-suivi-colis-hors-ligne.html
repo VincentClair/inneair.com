@@ -95,19 +95,19 @@
 						<li aria-current="page">KeyOpsTech</li>
 					</ol>
 				</nav>
-				<p class="projet-titre__secteur">Logistique en Afrique de l'Ouest, 2019 à 2020</p>
+				<p class="eyebrow projet-titre__secteur">Logistique en Afrique de l'Ouest, 2019 à 2020</p>
 				<h1>KeyOpsTech : fiabiliser le suivi de colis d'une logistique hors ligne en Afrique de l'Ouest</h1>
-				<p class="projet-titre__chapo">KeyOpsTech équipait des compagnies de cars et des transporteurs de Côte d'Ivoire et du Sénégal pour suivre leurs colis de main en main&nbsp;; selon sa directrice générale, près de 200&nbsp;000 colis avaient été livrés ainsi dans quatre pays entre février 2018 et octobre 2019. De septembre 2019 à février 2020, Innéair a tenu l'architecture du back-end de la plateforme, en a dirigé l'équipe et a conçu la refonte du moteur qui reconstitue le parcours de chaque colis.</p>
+				<p class="lead">KeyOpsTech équipait des compagnies de cars et des transporteurs de Côte d'Ivoire et du Sénégal pour suivre leurs colis de main en main&nbsp;; selon sa directrice générale, près de 200&nbsp;000 colis avaient été livrés ainsi dans quatre pays entre février 2018 et octobre 2019. De septembre 2019 à février 2020, Innéair a tenu l'architecture du back-end de la plateforme, en a dirigé l'équipe et a conçu la refonte du moteur qui reconstitue le parcours de chaque colis.</p>
 			</div>
 		</div>
 
-		<div class="wrap projet">
+		<div class="wrap">
 
 			<dl class="fiche">
-				<div><dt>Client</dt><dd>KeyOpsTech, start-up lyonnaise de logistique, avec des filiales à Abidjan et à Dakar</dd></div>
-				<div><dt>Plateforme</dt><dd>KOTscan, l'application Android des guichetiers, chauffeurs et livreurs, et son back-end, qui tient l'état de chaque colis&nbsp;; paiement par Mobile Money</dd></div>
-				<div><dt>Intervention d'Innéair</dt><dd>Architecture et direction de l'équipe du back-end, refonte du cycle de vie des colis, relecture et mises en production</dd></div>
-				<div class="fiche__large"><dt>Technologies</dt><dd><ul class="technos">
+				<div class="rule rule--lilac"><dt>Client</dt><dd>KeyOpsTech, start-up lyonnaise de logistique, avec des filiales à Abidjan et à Dakar</dd></div>
+				<div class="rule rule--lilac"><dt>Plateforme</dt><dd>KOTscan, l'application Android des guichetiers, chauffeurs et livreurs, et son back-end, qui tient l'état de chaque colis&nbsp;; paiement par Mobile Money</dd></div>
+				<div class="rule rule--lilac"><dt>Intervention d'Innéair</dt><dd>Architecture et direction de l'équipe du back-end, refonte du cycle de vie des colis, relecture et mises en production</dd></div>
+				<div class="fiche__large rule rule--lilac"><dt>Technologies</dt><dd><ul class="technos">
 					<li><span>Back-end</span> PHP, Symfony, Doctrine, Sonata Admin</li>
 					<li><span>Données</span> MySQL, Redis, Firebase</li>
 					<li><span>Tests</span> PHPUnit, Newman</li>
@@ -115,9 +115,9 @@
 				</ul></dd></div>
 			</dl>
 
-				<section class="etape">
+				<section class="etape rule">
 					<h2>Reconstituer le parcours de chaque colis</h2>
-					<aside class="encart" role="note" aria-label="À retenir">
+					<aside class="encart measure rule--side" role="note" aria-label="À retenir">
 						<p><strong>1&nbsp;classe</strong>par opération métier&nbsp;: elle écrit l'historique du colis, applique sa règle et publie un événement</p>
 					</aside>
 					<div class="etape__texte">
@@ -126,9 +126,9 @@
 					</div>
 				</section>
 
-				<section class="etape">
+				<section class="etape rule">
 					<h2>Absorber des événements en double, en retard ou dans le désordre</h2>
-					<aside class="encart" role="note" aria-label="À retenir">
+					<aside class="encart measure rule--side" role="note" aria-label="À retenir">
 						<p><strong>HTTP&nbsp;200</strong>la seule réponse qui retire un événement de la file d'envoi d'un téléphone</p>
 					</aside>
 					<div class="etape__texte">
@@ -137,9 +137,9 @@
 					</div>
 				</section>
 
-				<section class="etape">
+				<section class="etape rule">
 					<h2>Alléger le modèle avant de refondre</h2>
-					<aside class="encart" role="note" aria-label="À retenir">
+					<aside class="encart measure rule--side" role="note" aria-label="À retenir">
 						<p><strong>1&nbsp;base</strong>de données en moins&nbsp;: MongoDB, retirée du code et de la production</p>
 					</aside>
 					<div class="etape__texte">
@@ -148,9 +148,9 @@
 					</div>
 				</section>
 
-				<section class="etape">
+				<section class="etape rule">
 					<h2>Tester et livrer</h2>
-					<aside class="encart" role="note" aria-label="À retenir">
+					<aside class="encart measure rule--side" role="note" aria-label="À retenir">
 						<p><strong>176&nbsp;→&nbsp;488</strong>tests unitaires pendant la mission</p>
 						<p><strong>14&nbsp;opérations</strong>dans le nouveau cadre, chacune avec son test unitaire</p>
 					</aside>
@@ -160,14 +160,14 @@
 					</div>
 				</section>
 
-				<section class="etape">
+				<section class="etape rule">
 					<h2>Ce qu'Innéair en retient</h2>
 					<div class="etape__texte">
 						<p>Une refonte en production avance par étapes que l'on peut nommer&nbsp;: retirer, renommer, extraire, faire cohabiter l'ancien et le nouveau, migrer, puis assurer la compatibilité. Un client que l'on ne contrôle pas, ici un téléphone déjà distribué sur le terrain, continue d'imposer ses règles au serveur longtemps après la refonte&nbsp;: chaque code de réponse devient une décision.</p>
 					</div>
 				</section>
 
-			<p class="projet__suivant">Réalisation suivante&nbsp;: <a class="text-link" href="/realisations/attestation-legale-plateforme-conformite.html">Attestation Légale : stabiliser une plateforme SaaS en transformation</a></p>
+			<p class="projet__suivant rule">Réalisation suivante&nbsp;: <a class="text-link" href="/realisations/attestation-legale-plateforme-conformite.html">Attestation Légale : stabiliser une plateforme SaaS en transformation</a></p>
 		</div>
 
 		<section class="band band--gradient" aria-labelledby="titre-suite">

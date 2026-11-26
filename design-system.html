@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Design system | Innéair</title>
+	<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="icon" href="/favicon.ico" sizes="48x48">
+	<link rel="icon" type="image/svg+xml" href="/images/inneair-icone.svg">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<style>
+		/* Mise en page propre à cette page interne. Les exemples gardent le balisage et les classes du site. */
+		.ds-sommaire { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: 0.95rem; }
+		.ds-section { padding-block: 3rem 1rem; }
+		.ds-section > .wrap > h2 { max-width: none; }
+		.ds-sous { margin-top: 3rem; }
+		.ds-sous h3 { margin-bottom: 1rem; }
+		.ds-note { margin-top: 0.5rem; font-size: 0.9rem; color: var(--color-ink-soft); }
+		.ds-composant { padding-block: 2rem 1rem; }
+		.ds-composant h3 { margin-bottom: 0.75rem; font-size: 1.5rem; }
+		.ds-exemple { margin-top: 1.25rem; }
+		.ds-rendu { border: 1px dashed var(--color-lilac); background: var(--color-cream); overflow-x: clip; }
+		.ds-compact { padding: 1.5rem; }
+		.ds-legende { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--color-ink-soft); overflow-wrap: anywhere; }
+		.ds-legende code, .ds-table code, .ds-pastille code, .ds-type__spec code, .ds-note code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.85em; }
+		.ds-pastilles { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
+		.ds-pastille { display: grid; gap: 0.25rem; align-content: start; padding: 0.75rem; background: var(--color-paper); border: 1px solid var(--color-rule); border-radius: 12px; font-size: 0.875rem; }
+		.ds-pastille__couleur { height: 4rem; border: 1px solid var(--color-rule); border-radius: 8px; }
+		.ds-pastille__mini { display: block; width: 2.5rem; height: 1.5rem; border: 1px solid var(--color-rule); border-radius: 6px; }
+		.ds-pvaleur { overflow-wrap: anywhere; color: var(--color-ink-soft); }
+		.ds-pnote { font-size: 0.8125rem; color: var(--color-ink-soft); }
+		.ds-table-wrap { overflow-x: auto; }
+		.ds-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+		.ds-table th, .ds-table td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--color-rule); text-align: left; vertical-align: top; }
+		.ds-table th { font-weight: 640; }
+		.ds-type { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; padding-block: 1.25rem; border-top: 1px solid var(--color-rule); }
+		.ds-type__spec { font-size: 0.85rem; line-height: 1.5; color: var(--color-ink-soft); }
+		.ds-type__spec strong { color: var(--color-ink); }
+		.ds-etiquette { margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 640; }
+		.ds-ligne { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 1rem; align-items: center; padding-block: 0.4rem; border-top: 1px solid var(--color-rule); }
+		.ds-ligne__spec { font-size: 0.8rem; line-height: 1.35; color: var(--color-ink-soft); }
+		.ds-ligne__spec code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.95em; }
+		.ds-ligne__echantillon { white-space: nowrap; overflow: hidden; line-height: 1.15; }
+		.ds-cote { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; }
+		.ds-cote > * { flex: 1 1 14rem; }
+		.ds-cote > :first-child { background: var(--color-cream); }
+		.ds-etroit { max-width: 26rem; padding: 1.5rem; }
+		.ds-rayons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+		.ds-rayon { display: grid; place-items: center; width: 9rem; height: 5rem; background: var(--color-paper); border: 1px solid var(--color-lilac); font-size: 0.8rem; text-align: center; }
+		.ds-r-un { border-radius: var(--radius); }
+		.ds-r-deux { border-radius: var(--radius-s); }
+		.ds-r-trois { border-radius: var(--radius-small); }
+		@media (max-width: 40rem) {
+			.ds-ligne { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+		}
+		.ds-s-color-coral { background: var(--color-coral); }
+		.ds-s-color-plum { background: var(--color-plum); }
+		.ds-s-color-violet { background: var(--color-violet); }
+		.ds-s-color-coral-light { background: var(--color-coral-light); }
+		.ds-s-color-coral-pale { background: var(--color-coral-pale); }
+		.ds-s-color-coral-deep { background: var(--color-coral-deep); }
+		.ds-s-color-violet-dark { background: var(--color-violet-dark); }
+		.ds-s-color-lilac { background: var(--color-lilac); }
+		.ds-s-color-ink { background: var(--color-ink); }
+		.ds-s-color-ink-deep { background: var(--color-ink-deep); }
+		.ds-s-color-ink-light { background: var(--color-ink-light); }
+		.ds-s-color-ink-soft { background: var(--color-ink-soft); }
+		.ds-s-color-on-ink { background: var(--color-on-ink); }
+		.ds-s-color-on-ink-strong { background: var(--color-on-ink-strong); }
+		.ds-s-color-on-ink-muted { background: var(--color-on-ink-muted); }
+		.ds-s-color-paper { background: var(--color-paper); }
+		.ds-s-color-cream { background: var(--color-cream); }
+		.ds-s-color-mist { background: var(--color-mist); }
+		.ds-s-color-rule { background: var(--color-rule); }
+		.ds-s-gradient-brand { background: var(--gradient-brand); }
+		.ds-h-000 { background: #000; }
+		.ds-t-text-s { font-size: var(--text-s); }
+		.ds-t-text-base { font-size: var(--text-base); }
+		.ds-t-text-m { font-size: var(--text-m); }
+		.ds-t-text-l { font-size: var(--text-l); }
+		.ds-t-text-xl { font-size: var(--text-xl); }
+		.ds-t-text-display { font-size: var(--text-display); }
+		.ds-t-text-h2 { font-size: var(--text-h2); }
+		.ds-t-text-h1 { font-size: var(--text-h1); }
+		.ds-t-weight-medium { font-weight: var(--weight-medium); }
+		.ds-t-weight-semibold { font-weight: var(--weight-semibold); }
+		.ds-t-weight-bold { font-weight: var(--weight-bold); }
+		.ds-t-stretch-figure { font-stretch: var(--stretch-figure); }
+		.ds-t-stretch-title { font-stretch: var(--stretch-title); }
+		.ds-t-stretch-display { font-stretch: var(--stretch-display); }
+	</style>
+</head>
+<body>
+	<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+	<header class="site-header">
+		<div class="menu-etat" id="menu-etat" popover aria-hidden="true"></div>
+		<div class="wrap site-header__row">
+			<a class="logo" href="/" aria-label="Innéair, retour à l'accueil">
+				<img src="/images/inneair-icone.svg" alt="Logo d'Innéair" width="36" height="36">
+				<span class="logo__word"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+			</a>
+			<button class="menu-toggle" type="button" popovertarget="menu-etat" aria-controls="navigation">Menu</button>
+			<nav id="navigation" aria-label="Navigation principale">
+				<ul class="site-nav">
+					<li><a href="/services/">Services</a></li>
+					<li><a href="/realisations/">Réalisations</a></li>
+					<li><a href="/entreprise/">L'entreprise</a></li>
+					<li class="site-nav__action"><a class="button" href="/#contact">Parler de votre projet</a></li>
+				</ul>
+			</nav>
+			<a class="button button--small site-header__action" href="/#contact"><span class="libelle-long">Parler de votre projet</span><span class="libelle-court">Contact</span></a>
+		</div>
+	</header>
+
+	<main id="contenu">
+
+		<div class="page-title projet-titre">
+			<div class="wrap">
+				<h1>Design system</h1>
+				<p class="projet-titre__chapo">Page interne. Composants du site dans la charte actuelle, après correction de la dérive, au 26 novembre 2026.</p>
+				<ul class="ds-sommaire">
+					<li><a class="text-link" href="#ds-fondations">Fondations</a></li>
+					<li><a class="text-link" href="#ds-atomes">Atomes</a></li>
+					<li><a class="text-link" href="#ds-molecules">Molécules</a></li>
+					<li><a class="text-link" href="#ds-organismes">Organismes</a></li>
+					<li><a class="text-link" href="#ds-gabarits">Gabarits</a></li>
+					<li><a class="text-link" href="#ds-fusions">Fusions</a></li>
+					<li><a class="text-link" href="#ds-orphelines">Classes orphelines</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<section class="ds-section" id="ds-fondations" aria-labelledby="titre-fondations">
+			<div class="wrap">
+				<h2 id="titre-fondations">Fondations</h2>
+				<div class="ds-sous" id="ds-couleurs">
+					<h3>Couleurs</h3>
+					<p class="ds-note">Variables de couleur déclarées dans <code>:root</code>.</p>
+					<ul class="ds-pastilles">
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-coral"></span>
+							<code>--color-coral</code>
+							<span class="ds-pvaleur">#e37682</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-plum"></span>
+							<code>--color-plum</code>
+							<span class="ds-pvaleur">#935d8c</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-violet"></span>
+							<code>--color-violet</code>
+							<span class="ds-pvaleur">#5f4d93</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-coral-light"></span>
+							<code>--color-coral-light</code>
+							<span class="ds-pvaleur">#ec95a0</span>
+							<span class="ds-pnote">survol du bouton corail</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-coral-pale"></span>
+							<code>--color-coral-pale</code>
+							<span class="ds-pvaleur">#f2b0b8</span>
+							<span class="ds-pnote">corail pâle, lisible sur fond sombre</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-coral-deep"></span>
+							<code>--color-coral-deep</code>
+							<span class="ds-pvaleur">#b03f53</span>
+							<span class="ds-pnote">texte corail sur fond clair : contraste 4,9 sur le rose pâle, 5,3 sur le crème</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-violet-dark"></span>
+							<code>--color-violet-dark</code>
+							<span class="ds-pvaleur">#4b3c7a</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-lilac"></span>
+							<code>--color-lilac</code>
+							<span class="ds-pvaleur">#d4c2d9</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-ink"></span>
+							<code>--color-ink</code>
+							<span class="ds-pvaleur">#2a1d35</span>
+							<span class="ds-pnote">aubergine : texte et bandes sombres</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-ink-deep"></span>
+							<code>--color-ink-deep</code>
+							<span class="ds-pvaleur">#1f1528</span>
+							<span class="ds-pnote">fond du pied de page</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-ink-light"></span>
+							<code>--color-ink-light</code>
+							<span class="ds-pvaleur">#33213f</span>
+							<span class="ds-pnote">fin du dégradé des bandes sombres</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-ink-soft"></span>
+							<code>--color-ink-soft</code>
+							<span class="ds-pvaleur">#5e5066</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-on-ink"></span>
+							<code>--color-on-ink</code>
+							<span class="ds-pvaleur">#d9cde0</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-on-ink-strong"></span>
+							<code>--color-on-ink-strong</code>
+							<span class="ds-pvaleur">#f3edf7</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-on-ink-muted"></span>
+							<code>--color-on-ink-muted</code>
+							<span class="ds-pvaleur">#bcaec6</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-paper"></span>
+							<code>--color-paper</code>
+							<span class="ds-pvaleur">#ffffff</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-cream"></span>
+							<code>--color-cream</code>
+							<span class="ds-pvaleur">#fbf7f3</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-mist"></span>
+							<code>--color-mist</code>
+							<span class="ds-pvaleur">#f5ece6</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-color-rule"></span>
+							<code>--color-rule</code>
+							<span class="ds-pvaleur">#eadcd4</span>
+						</li>
+						<li class="ds-pastille">
+							<span class="ds-pastille__couleur ds-s-gradient-brand"></span>
+							<code>--gradient-brand</code>
+							<span class="ds-pvaleur">linear-gradient(120deg, var(--color-coral) 0%, var(--color-plum) 52%, var(--color-violet) 100%)</span>
+						</li>
+					</ul>
+				</div>
+				<div class="ds-sous" id="ds-couleurs-dur">
+					<h3>Couleurs hors variables</h3>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Pastille</th><th scope="col">Valeur</th><th scope="col">Déclarations</th><th scope="col">Équivalent</th><th scope="col">Où (propriété)</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span class="ds-pastille__mini ds-h-000"></span></td>
+									<td><code>#000</code></td>
+									<td>4</td>
+									<td>aucune variable</td>
+									<td>.marquee (-webkit-mask-image) ; .marquee (mask-image)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="ds-note">Le noir de mask-image reste tel quel : un masque n'utilise que l'opacité. Les couleurs avec opacité sont écrites avec color-mix() sur une variable de la charte.</p>
+				</div>
+				<div class="ds-sous" id="ds-typo">
+					<h3>Typographie</h3>
+					<p class="ds-etiquette">Familles déclarées</p>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Règle</th><th scope="col">Propriété</th><th scope="col">Valeur</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>@font-face</code></td>
+									<td><code>font-family</code></td>
+									<td><code>&quot;Archivo&quot;</code></td>
+								</tr>
+								<tr>
+									<td><code>@font-face</code></td>
+									<td><code>src</code></td>
+									<td><code>url(&quot;/assets/fonts/archivo-latin.woff2&quot;) format(&quot;woff2&quot;)</code></td>
+								</tr>
+								<tr>
+									<td><code>@font-face</code></td>
+									<td><code>font-weight</code></td>
+									<td><code>100 900</code></td>
+								</tr>
+								<tr>
+									<td><code>@font-face</code></td>
+									<td><code>font-stretch</code></td>
+									<td><code>62% 125%</code></td>
+								</tr>
+								<tr>
+									<td><code>@font-face</code></td>
+									<td><code>font-display</code></td>
+									<td><code>swap</code></td>
+								</tr>
+								<tr>
+									<td><code>:root</code></td>
+									<td><code>--font</code></td>
+									<td><code>&quot;Archivo&quot;, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif</code></td>
+								</tr>
+								<tr>
+									<td><code>body</code></td>
+									<td><code>font-family</code></td>
+									<td><code>var(--font)</code></td>
+								</tr>
+								<tr>
+									<td><code>.menu-toggle</code></td>
+									<td><code>font</code></td>
+									<td><code>inherit</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="ds-etiquette">Échelle de tailles</p>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-s</code><br>0.9375rem · 15 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-s">Usine logicielle et automatisation</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-base</code><br>1.0625rem · 17 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-base">Usine logicielle et automatisation</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-m</code><br>1.1875rem · 19 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-m">Usine logicielle et automatisation</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-l</code><br>1.5rem · 24 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-l">Usine logicielle et automatisation</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-xl</code><br>2rem · 32 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-xl">Usine logicielle et automatisation</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-display</code><br>clamp(2.2rem, 1.5rem + 2.3vw, 3.15rem) · 35,2 à 50,4 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-display">Réalisations</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-h2</code><br>clamp(1.8rem, 1.2rem + 2vw, 2.65rem) · 28,8 à 42,4 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-h2">Réalisations</p>
+					</div>
+					<div class="ds-ligne">
+						<p class="ds-ligne__spec"><code>--text-h1</code><br>clamp(2.2rem, 1.2rem + 3.3vw, 3.7rem) · 35,2 à 59,2 px</p>
+						<p class="ds-ligne__echantillon ds-t-text-h1">Réalisations</p>
+					</div>
+					<p class="ds-etiquette">Graisses</p>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Jeton</th><th scope="col">Valeur</th><th scope="col">Rendu</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>--weight-medium</code></td>
+									<td>500</td>
+									<td><span class="ds-t-weight-medium">Innéair</span></td>
+								</tr>
+								<tr>
+									<td><code>--weight-semibold</code></td>
+									<td>600</td>
+									<td><span class="ds-t-weight-semibold">Innéair</span></td>
+								</tr>
+								<tr>
+									<td><code>--weight-bold</code></td>
+									<td>650</td>
+									<td><span class="ds-t-weight-bold">Innéair</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="ds-etiquette">Largeurs</p>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Jeton</th><th scope="col">Valeur</th><th scope="col">Rendu</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>--stretch-figure</code></td>
+									<td>72%</td>
+									<td><span class="ds-t-stretch-figure">Innéair</span></td>
+								</tr>
+								<tr>
+									<td><code>--stretch-title</code></td>
+									<td>106%</td>
+									<td><span class="ds-t-stretch-title">Innéair</span></td>
+								</tr>
+								<tr>
+									<td><code>--stretch-display</code></td>
+									<td>110%</td>
+									<td><span class="ds-t-stretch-display">Innéair</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="ds-sous" id="ds-variables">
+					<h3>Autres variables</h3>
+					<div class="ds-rayons">
+						<span class="ds-rayon ds-r-un">--radius</span>
+						<span class="ds-rayon ds-r-deux">--radius-s</span>
+						<span class="ds-rayon ds-r-trois">--radius-small</span>
+					</div>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Variable</th><th scope="col">Valeur</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>--font</code></td>
+									<td><code>&quot;Archivo&quot;, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif</code></td>
+								</tr>
+								<tr>
+									<td><code>--width-page</code></td>
+									<td><code>74rem</code></td>
+								</tr>
+								<tr>
+									<td><code>--gutter</code></td>
+									<td><code>clamp(1.25rem, 4vw, 2.5rem)</code></td>
+								</tr>
+								<tr>
+									<td><code>--space-band</code></td>
+									<td><code>clamp(4.5rem, 9vw, 7.5rem)</code></td>
+								</tr>
+								<tr>
+									<td><code>--radius</code></td>
+									<td><code>22px</code></td>
+								</tr>
+								<tr>
+									<td><code>--radius-s</code></td>
+									<td><code>14px</code></td>
+								</tr>
+								<tr>
+									<td><code>--radius-small</code></td>
+									<td><code>999px</code></td>
+								</tr>
+								<tr>
+									<td><code>--header-height</code></td>
+									<td><code>4.5rem</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-atomes" aria-labelledby="titre-ds-atomes">
+			<div class="wrap">
+				<h2 id="titre-ds-atomes">Atomes</h2>
+				<p class="ds-note">Les plus petites pièces réutilisées.</p>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-bouton">
+					<h3>Bouton</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<a class="button" href="#contact">Parler de votre projet</a>
+									<a class="button button--small site-header__action" href="/#contact"><span class="libelle-long">Parler de votre projet</span><span class="libelle-court">Contact</span></a>
+								</div>
+								<div class="band--ink ds-compact">
+									<a class="button button--coral" href="/#contact">Parler de votre projet</a>
+								</div>
+								<div class="band--gradient ds-compact">
+									<a class="button button--light" href="mailto:vincent.clair@inneair.com?subject=Prise%20de%20contact">Écrire à Innéair</a>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>button, button--small, button--coral (sur fond sombre), button--light (sur dégradé)</code> · index.html, entreprise/principes.html, realisations/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; variantes : taille (--small) et couleur (--coral, --light) selon le fond</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-lien">
+					<h3>Lien texte</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<p><a class="text-link" href="/realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></p>
+								</div>
+								<div class="band--ink ds-compact">
+									<p><a class="text-link text-link--onDark" href="/realisations/">Voir toutes les réalisations</a></p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>text-link, text-link--onDark (sur fond sombre)</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; variante de fond (--onDark)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-libelle">
+					<h3>Libellé</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<p class="eyebrow hero__kicker">Usine logicielle et automatisation</p>
+									<p class="eyebrow eyebrow--small">Réalisation récente</p>
+								</div>
+								<div class="band--ink ds-compact">
+									<p class="eyebrow eyebrow--small eyebrow--on-dark">Industrie et maison connectée, 2021 à 2025</p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>eyebrow (+ hero__kicker pour le trait en dégradé), eyebrow eyebrow--small, eyebrow--on-dark (sur fond sombre)</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le trait en dégradé (hero__kicker)</p>
+					<p class="ds-legende">Classes d'élément qui reposent dessus : <code>hero__kicker</code>, <code>projet-titre__secteur</code></p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-pastille">
+					<h3>Pastille</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<p class="pill step__duration">Quatre à six jours, au forfait</p>
+								</div>
+								<div class="ds-compact">
+									<span class="pill pill--mist">MAX</span>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>pill, pill--mist</code> · services/reprise-application-web.html, realisations/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; variante de fond (--mist)</p>
+					<p class="ds-legende">Classes d'élément qui reposent dessus : <code>step__duration</code></p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-lead">
+					<h3>Texte d&#x27;introduction</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-etroit">
+								<p class="lead">Innéair donne à chacun le rôle qu'il sait tenir, dans votre logiciel comme dans vos services.</p>
+							</div>
+						</div>
+						<p class="ds-legende"><code>lead</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; --suite pour un paragraphe placé après une liste ou une grille</p>
+					<p class="ds-legende">Classes d'élément qui reposent dessus : <code>hero__lead</code></p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-filet">
+					<h3>Filet de tête</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-etroit">
+								<div class="rule">
+									<p>Innéair donne à chacun le rôle qu'il sait tenir, dans votre logiciel comme dans vos services.</p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>rule (rule--lilac, rule--dark, rule--side pour les variantes)</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; variantes : filet lilas épais (--lilac), filet sur fond sombre (--dark), filet latéral corail (--side)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-logo">
+					<h3>Logo</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<a class="logo" href="/" aria-label="Innéair, retour à l'accueil">
+										<img src="/images/inneair-icone.svg" alt="Logo d'Innéair" width="36" height="36">
+										<span class="logo__word"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+									</a>
+								</div>
+								<div class="band--ink ds-compact">
+									<p class="logo logo--footer">
+										<img src="/images/inneair-icone.svg" alt="Logo d'Innéair" width="32" height="32">
+										<span class="logo__word" aria-hidden="true"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>logo, logo__word, logo__inne, logo__air, logo--footer (sur fond sombre)</code> · entreprise/principes.html, index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; variante de fond (--footer)</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-molecules" aria-labelledby="titre-ds-molecules">
+			<div class="wrap">
+				<h2 id="titre-ds-molecules">Molécules</h2>
+				<p class="ds-note">Assemblages d&#x27;atomes réutilisés.</p>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-mesure">
+					<h3>Mesure (chiffre et légende)</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<ul class="product__facts">
+										<li class="measure rule rule--lilac"><strong>≈ 40</strong> sites déployés</li>
+										<li class="measure rule rule--lilac"><strong>25&nbsp;M+</strong> de pages vues en 2016 sur les sites de Nivéales Médias publiés avec Origami</li>
+										<li class="measure rule rule--lilac"><strong>JEI</strong> Jeune Entreprise Innovante, avec crédits d'impôt recherche et innovation</li>
+									</ul>
+								</div>
+								<div class="band--ink ds-compact">
+									<ul class="measures">
+										<li class="measure measure--dark rule rule--dark"><strong>55 fois moins</strong> d'appels vers le back-office commun en test de charge, grâce à la déduplication des requêtes et à un cache à deux niveaux</li>
+										<li class="measure measure--dark rule rule--dark"><strong>−&nbsp;68&nbsp;%</strong> Stockage de chaque entrée d'alerte</li>
+									</ul>
+								</div>
+								<div class="ds-compact">
+									<dl class="keyfigures rule">
+										<div class="measure measure--big">
+											<dt>2008</dt>
+											<dd>Création d'Innéair à Lyon. La société est installée aujourd'hui en Dordogne, à Périgueux.</dd>
+										</div>
+										<div class="measure measure--big">
+											<dt>20+</dt>
+											<dd>Entreprises accompagnées, de la jeune pousse au groupe industriel.</dd>
+										</div>
+										<div class="measure measure--big">
+											<dt>≈ 40</dt>
+											<dd>Sites déployés sur Origami, le CMS édité par Innéair.</dd>
+										</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>measure, measures (liste en pied de carte), measure--dark (sur fond sombre), measure--big (grand chiffre)</code> · entreprise/index.html, realisations/index.html, index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la légende ; le filet de séparation (rule) ; la liste (measures) ou la grille qui les range</p>
+					<p class="ds-legende">Classes d'élément qui reposent dessus : <code>product__facts</code>, <code>keyfigures</code></p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-liste">
+					<h3>Liste (puce ou coche)</h3>
+					<p class="ds-note">Liste à puces raccourcie : 3 puces sur 5.</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<ul class="list list--dot">
+										<li>Chaque évolution casse autre chose, et l'équipe évite de toucher à certaines parties du code.</li>
+										<li>Le socle technique est resté sur une version qui ne reçoit plus de correctifs de sécurité, et sa montée de version paraît trop risquée.</li>
+										<li>L'équipe qui a écrit l'application est partie, ou le prestataire précédent a arrêté, et plus personne ne connaît vraiment le code.</li>
+									</ul>
+								</div>
+								<div class="ds-compact">
+									<ul class="list list--check">
+										<li>Diagnostic des fondations, de l'état de préparation et de la souveraineté</li>
+										<li>Pilote d'une usine à pull requests sur un repo</li>
+										<li>Chaque pull request relue par votre équipe</li>
+										<li>Agents isolés, sans accès à la production ni aux secrets</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>list list--dot, list list--check</code> · services/reprise-application-web.html, services/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-personne">
+					<h3>Présentation de personne</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="founder__person">
+								<img src="/images/vincent-clair-gerant-inneair-176.webp" alt="Portrait de Vincent Clair" width="88" height="88" loading="lazy">
+								<p><strong>Vincent Clair</strong>Fondateur et gérant<br>Ingénieur en informatique diplômé de l'<abbr title="Université de technologie de Belfort-Montbéliard">UTBM</abbr></p>
+							</div>
+						</div>
+						<p class="ds-legende"><code>founder__person</code> · entreprise/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le titre et le diplôme sous le nom</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-titre-bande">
+					<h3>Titre de bande (titre, introduction, lien)</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="wrap">
+								<h2>L'entreprise</h2>
+								<p class="lead">Innéair est une SARL indépendante, créée en octobre 2008 à Lyon. Elle a édité son propre logiciel, formé des équipes techniques et accompagné plus de vingt entreprises.</p>
+								<p class="band__cta"><a class="text-link" href="/entreprise/">Découvrir l'histoire d'Innéair et ses produits</a></p>
+							</div>
+						</div>
+						<p class="ds-legende"><code>h2, lead, band__cta, text-link</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : l&#x27;introduction, le lien final</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-suite">
+					<h3>Lien de suite</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="wrap projet">
+								<p class="projet__suivant rule">Réalisation suivante&nbsp;: <a class="text-link" href="/realisations/groupe-361-alm-avis-clients.html">ALM, Groupe 361 : reprise d'une plateforme d'avis clients</a></p>
+							</div>
+						</div>
+						<p class="ds-legende"><code>projet__suivant, rule, text-link</code> · realisations/viaco-plateforme-saas-btp.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-organismes" aria-labelledby="titre-ds-organismes">
+			<div class="wrap">
+				<h2 id="titre-ds-organismes">Organismes</h2>
+				<p class="ds-note">Blocs complets.</p>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-entete">
+					<h3>En-tête et menu</h3>
+					<p class="ds-note">Rendu en direct : l'en-tête de cette page est celui des autres pages, copié tel quel. Le bouton « Menu » et le menu déroulant n'apparaissent que sous 56rem de large.</p>
+					<p class="ds-legende"><code>skip-link, site-header, site-header__row, logo, menu-etat, menu-toggle, site-nav, site-nav__action, button button--small site-header__action, libelle-long, libelle-court</code> · entreprise/principes.html</p>
+					<p class="ds-legende">Éléments facultatifs : le bouton d'action (absent des pages de texte).</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-titre-page">
+					<h3>Titre de page</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="page-title projet-titre">
+								<div class="wrap">
+									<nav class="ariane" aria-label="Fil d'Ariane">
+										<ol>
+											<li><a href="/">Accueil</a></li>
+											<li><a href="/realisations/">Réalisations</a></li>
+											<li aria-current="page">Viaco</li>
+										</ol>
+									</nav>
+									<p class="eyebrow projet-titre__secteur">Conformité des sous-traitants du BTP, 2020 à 2021</p>
+									<h1>Viaco : une plateforme SaaS serverless du BTP menée jusqu'à sa version 1.0</h1>
+									<p class="lead">Viaco, aujourd'hui une marque du groupe Once For All, numérise deux outils du chantier&nbsp;: la pré-qualification des sous-traitants et le panneau de chantier. Pendant quatorze mois, Innéair a dirigé son équipe de développement comme tech lead et Scrum Master&nbsp;: elle a restructuré l'API serverless de la plateforme, changé sa stratégie de tests, écrit son processus de livraison et mené l'équipe jusqu'à la version 1.0.</p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>page-title, projet-titre, ariane, projet-titre__secteur (+ eyebrow), lead</code> · realisations/viaco-plateforme-saas-btp.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le fil d&#x27;Ariane, le secteur, le texte d&#x27;introduction ; la page de texte n&#x27;a que le titre (page-title, mentions-legales.html)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-accueil">
+					<h3>Haut de l&#x27;accueil</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="hero" id="ex28-haut">
+								<div class="wrap hero__grid">
+									<div>
+										<p class="eyebrow hero__kicker">Usine logicielle et automatisation</p>
+										<h1>L'IA pour la vitesse, le code pour la justesse.</h1>
+										<p class="lead hero__lead">Innéair fait travailler des agents IA dans votre logiciel et dans les processus de vos services. Dans une usine logicielle, ils mènent un ticket jusqu'à une pull request vérifiée&nbsp;; dans un service, ils préparent le dossier. Des règles écrites et testées contrôlent ce qu'ils produisent, et une personne valide ce qui ne s'annule pas.</p>
+										<p class="hero__actions">
+											<a class="button" href="#contact">Parler de votre projet</a>
+										</p>
+									</div>
+
+									<aside class="card proof" aria-labelledby="ex28-titre-preuve">
+										<p class="eyebrow eyebrow--small">Réalisation récente</p>
+										<h2 class="card__title proof__title" id="ex28-titre-preuve">Somfy, 2021 à 2025</h2>
+										<p class="proof__context">Plateforme IoT des installateurs professionnels, reprise et fiabilisée pendant quatre ans sans interrompre les livraisons.</p>
+										<ul class="measures">
+											<li class="measure rule"><strong>0 bogue</strong> remonté par le Product Owner sur le moteur d'alertes, cœur métier de la plateforme, depuis sa refonte, contre une vingtaine en un an avant</li>
+											<li class="measure rule"><strong>4 j&nbsp;→&nbsp;1 h</strong> pour intégrer un nouveau produit, une fois la procédure automatisée&nbsp;: environ 20 jours de développement gagnés par an</li>
+											<li class="measure rule"><strong>100&nbsp;000</strong> requêtes en quatre minutes au pic de production, avec une latence stable</li>
+										</ul>
+										<p><a class="text-link" href="/realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></p>
+									</aside>
+								</div>
+
+								<div class="wrap">
+									<dl class="keyfigures rule">
+										<div class="measure measure--big">
+											<dt>2008</dt>
+											<dd>Création d'Innéair à Lyon. La société est installée aujourd'hui en Dordogne, à Périgueux.</dd>
+										</div>
+										<div class="measure measure--big">
+											<dt>20+</dt>
+											<dd>Entreprises accompagnées, de la jeune pousse au groupe industriel.</dd>
+										</div>
+										<div class="measure measure--big">
+											<dt>≈ 40</dt>
+											<dd>Sites déployés sur Origami, le CMS édité par Innéair.</dd>
+										</div>
+									</dl>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>hero, hero__grid, hero__kicker, hero__lead, hero__actions, card proof, keyfigures</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la carte de preuve (card proof) et ses mesures, les chiffres clés (keyfigures)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-carte">
+					<h3>Carte</h3>
+					<p class="ds-note">Variantes : card--ink (aplat sombre, utilisé avec measure--dark), card--cta (appel à l&#x27;action sur une bande sombre). Le deuxième exemple est une citation, une carte qui repose sur card.</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-cote">
+								<div class="ds-compact">
+									<article class="card">
+										<h2 class="card__title">Usine logicielle</h2>
+										<p class="card__text">Vos développeurs travaillent déjà avec des agents, et vous voulez leur confier des tickets entiers. Des agents IA mènent un ticket jusqu'à une pull request vérifiée, et votre équipe garde la main sur les spécifications et sur la fusion.</p>
+										<ul class="list list--check">
+											<li>Diagnostic des fondations, de l'état de préparation et de la souveraineté</li>
+											<li>Pilote d'une usine à pull requests sur un repo</li>
+											<li>Chaque pull request relue par votre équipe</li>
+											<li>Agents isolés, sans accès à la production ni aux secrets</li>
+										</ul>
+										<p class="card__more"><a class="text-link" href="/services/usine-logicielle.html">Voir le déroulement d'une usine logicielle</a></p>
+									</article>
+								</div>
+								<div class="band--ink ds-compact">
+									<article class="card card--dark" id="ex30-somfy">
+										<svg class="card__figure" viewBox="0 0 320 96" aria-hidden="true">
+											<path d="M28 50L68 20l40 30v32H28z" fill="var(--color-violet)"/>
+											<g fill="var(--color-coral)"><rect x="40" y="56" width="22" height="16" rx="5"/><rect x="74" y="56" width="22" height="16" rx="5"/></g>
+											<g stroke="var(--color-lilac)" stroke-width="2"><path d="M108 62h42M178 62h36"/></g>
+											<circle cx="164" cy="62" r="14" fill="none" stroke="var(--color-coral)" stroke-width="3"/>
+											<rect x="214" y="34" width="82" height="52" rx="12" fill="var(--color-violet)"/>
+											<g fill="#fff"><rect x="226" y="46" width="44" height="6" rx="3"/><rect x="226" y="58" width="58" height="6" rx="3" opacity="0.7"/><rect x="226" y="70" width="36" height="6" rx="3" opacity="0.7"/></g>
+										</svg>
+										<p class="eyebrow eyebrow--small eyebrow--on-dark">Industrie et maison connectée, 2021 à 2025</p>
+										<h3 class="card__title">Somfy</h3>
+										<p class="card__text">Innéair a repris et fait évoluer pendant quatre ans, sans interrompre les livraisons, la plateforme IoT des installateurs professionnels, dont les micro-services Node.js reçoivent chaque jour des centaines de milliers d'événements.</p>
+										<ul class="measures">
+											<li class="measure measure--dark rule rule--dark"><strong>55 fois moins</strong> d'appels vers le back-office commun en test de charge, grâce à la déduplication des requêtes et à un cache à deux niveaux</li>
+											<li class="measure measure--dark rule rule--dark"><strong>−&nbsp;68&nbsp;%</strong> Stockage de chaque entrée d'alerte</li>
+										</ul>
+										<p class="card__tags">Angular, Node.js, TypeScript, NestJS, Kafka, MongoDB</p>
+										<p class="card__more"><a class="text-link text-link--onDark" href="/realisations/somfy-plateforme-iot-b2b.html">Lire le projet Somfy</a></p>
+									</article>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>card, card--dark (sur fond sombre), card__figure, card__title, card__text, card__tags, card__more, eyebrow, measures, list--check</code> · services/index.html, realisations/index.html</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="ds-etroit">
+								<figure class="card quote">
+									<blockquote><p>«&nbsp;[…] Il sait intervenir lors de la conception, le run ou même la phase stabilisation d'un projet, ce qui n'est pas donné à tout le monde.&nbsp;»</p></blockquote>
+									<figcaption><strong>Alain Begey</strong>Alors directeur technique de Loyalty Company</figcaption>
+								</figure>
+							</div>
+						</div>
+						<p class="ds-legende"><code>card quote</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la figure, le libellé (eyebrow), le texte, la liste à coches, les mesures, les étiquettes de technologies, le lien (étendu à toute la carte)</p>
+					<p class="ds-legende">Classes d'élément qui reposent dessus : <code>proof</code>, <code>commitment</code>, <code>product</code>, <code>product--main</code>, <code>quote</code>, <code>contact__card</code></p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-references">
+					<h3>Bandeau et mur de logos</h3>
+					<p class="ds-note">Listes raccourcies : 3 logos par bandeau au lieu de 6, 4 logos au lieu de 11 pour les grands groupes.</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band refs" id="ex33-references">
+								<div class="wrap">
+									<h2>Nos références</h2>
+									<p class="lead">Innéair a accompagné des éditeurs de logiciels, des industriels et des marques. Les plateformes que nous avons construites pour eux servent aussi les équipes de grands groupes.</p>
+
+									<div class="refs__group">
+										<h3 class="refs__title">Entreprises accompagnées par Innéair</h3>
+										<div class="marquee">
+											<ul class="wall wall--marquee">
+												<li><img src="/images/logos/somfy.svg" alt="Somfy" width="127" height="32" loading="lazy"></li>
+												<li><img src="/images/logos/once-for-all.webp" alt="Once For All" width="235" height="60" class="is-wide" loading="lazy"></li>
+												<li><img src="/images/logos/jeff-de-bruges.webp" alt="Jeff de Bruges" width="300" height="80" loading="lazy"></li>
+											</ul>
+											<ul class="wall wall--marquee" aria-hidden="true">
+												<li><img src="/images/logos/somfy.svg" alt="Somfy" width="127" height="32" loading="lazy"></li>
+												<li><img src="/images/logos/once-for-all.webp" alt="Once For All" width="235" height="60" class="is-wide" loading="lazy"></li>
+												<li><img src="/images/logos/jeff-de-bruges.webp" alt="Jeff de Bruges" width="300" height="80" loading="lazy"></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="refs__group">
+										<h3 class="refs__title">Des plateformes utilisées par de grands groupes</h3>
+										<p class="refs__note">Ces groupes ont utilisé des plateformes qu'Innéair a conçues ou fiabilisées pour ses clients. Le projet concerné figure sous chaque logo.</p>
+										<ul class="wall wall--users">
+											<li><img src="/images/logos/michelin.webp" alt="Michelin" width="330" height="60" loading="lazy"><span class="pill pill--mist">MAX</span></li>
+											<li><img src="/images/logos/vinci.webp" alt="Vinci" width="232" height="60" loading="lazy"><span class="pill pill--mist">Viaco</span></li>
+											<li><img src="/images/logos/loreal.webp" alt="L'Oréal" width="228" height="60" loading="lazy"><span class="pill pill--mist">Loyalty Company</span></li>
+											<li><img src="/images/logos/pepsico.svg" alt="PepsiCo" width="260" height="60" loading="lazy"><span class="pill pill--mist">MAX</span></li>
+										</ul>
+									</div>
+
+									<ul class="grid grid--3 grid--spaced">
+										<li class="card card--ink measure measure--dark"><strong>Plus de 4&nbsp;000</strong> installateurs professionnels utilisaient la plateforme Somfy fiabilisée par Innéair.</li>
+										<li class="card card--ink measure measure--dark"><strong>Plus de 25&nbsp;millions</strong> de pages vues en 2016 sur les sites de Nivéales Médias publiés avec Origami.</li>
+										<li class="card card--ink measure measure--dark"><strong>10</strong> programmes d'animation commerciale de grands comptes, dont ceux de Michelin et de PepsiCo, sont passés en production sur MAX en huit mois.</li>
+									</ul>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>refs, refs__group, refs__title, refs__note, marquee, wall, wall--marquee, wall--users, pill pill--mist, is-wide, is-thin, is-tall, grid grid--3 (cartes card--ink)</code> · realisations/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le bandeau défilant, le mur des grands groupes, la note, les chiffres de portée</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-frise">
+					<h3>Frise chronologique</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band" id="ex35-histoire" aria-labelledby="ex35-titre-histoire">
+								<div class="wrap">
+									<h2 id="ex35-titre-histoire">De 2008 à aujourd'hui</h2>
+									<ol class="history rule rule--lilac">
+										<li>
+											<p class="history__year"><time datetime="2008">2008</time></p>
+											<h3>Création à Lyon</h3>
+											<p>Innéair naît pour concevoir des applications web métier.</p>
+										</li>
+										<li>
+											<p class="history__year"><time datetime="2008">2008</time> à <time datetime="2016">2016</time></p>
+											<h3>L'éditeur d'Origami</h3>
+											<p>L'équipe compte jusqu'à cinq personnes. Elle déploie le CMS sur près de 40 sites, obtient le statut de Jeune Entreprise Innovante et dispense des formations techniques.</p>
+										</li>
+										<li>
+											<p class="history__year"><time datetime="2015">2015</time> à <time datetime="2021">2021</time></p>
+											<h3>L'ingénierie pour les éditeurs et les marques</h3>
+											<p>Loyalty Company, Attestation Légale, Groupe 361, Biogaran via Groupe 361, Jeff de Bruges via Numendo, KeyOpsTech et Viaco confient la conception ou la reprise de leurs plateformes à Innéair. De 2020 à 2024, Innéair est agréée au crédit d'impôt innovation.</p>
+										</li>
+										<li>
+											<p class="history__year"><time datetime="2021">2021</time> à <time datetime="2025">2025</time></p>
+											<h3>Quatre ans auprès de Somfy</h3>
+											<p>Innéair dirige l'équipe de développement de la plateforme des installateurs professionnels, en porte l'architecture et la fiabilise sans interrompre les livraisons.</p>
+										</li>
+										<li>
+											<p class="history__year"><time datetime="2026">2026</time></p>
+											<h3>IA encadrée et nouveaux produits</h3>
+											<p>Innéair met en production pour Phosphoria un pipeline d'IA encadrée, et obtient de nouveau l'agrément au crédit d'impôt innovation, cette fois jusqu'en 2030. Ses produits Ikima 1 et Kanpai Ø entrent aussi en production.</p>
+										</li>
+									</ol>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>history, rule rule--lilac, history__year</code> · entreprise/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-fiche">
+					<h3>Fiche de projet</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="wrap projet">
+								<dl class="fiche">
+									<div class="rule rule--lilac"><dt>Client</dt><dd>Viaco, plateforme SaaS B2B pour les donneurs d'ordre et les prestataires du BTP</dd></div>
+									<div class="rule rule--lilac"><dt>Plateforme</dt><dd>Un questionnaire de conformité (loi Sapin 2, RSE) rempli une fois par chaque prestataire et pré-rempli à partir des données légales de son entreprise&nbsp;; un panneau de chantier consultable par QR code</dd></div>
+									<div class="rule rule--lilac"><dt>Intervention d'Innéair</dt><dd>Tech lead et Scrum Master de l'équipe de développement, restructuration de l'API, stratégie de tests et processus de livraison</dd></div>
+									<div class="fiche__large rule rule--lilac"><dt>Technologies</dt><dd><ul class="technos">
+										<li><span>Services</span> Node.js, TypeScript, Serverless Framework</li>
+										<li><span>AWS</span> Lambda, API Gateway, SQS, S3</li>
+										<li><span>Données</span> MySQL, Sequelize</li>
+										<li><span>Interface</span> React, react-admin</li>
+										<li><span>Identité</span> Keycloak</li>
+										<li><span>Tests et livraison</span> Jest, GitLab CI</li>
+									</ul></dd></div>
+									<div class="fiche__large rule rule--lilac"><dt>Grands comptes utilisateurs</dt><dd><ul class="fiche__logos">
+										<li><img src="/images/logos/vinci.webp" alt="Vinci" width="232" height="60" loading="lazy"></li>
+										<li><img src="/images/logos/bouygues-immobilier.webp" alt="Bouygues Immobilier" width="162" height="60" class="is-tall" loading="lazy"></li>
+										<li><img src="/images/logos/bouygues-batiment.webp" alt="Bouygues Bâtiment France" width="118" height="60" class="is-tall" loading="lazy"></li>
+									</ul></dd></div>
+								</dl>
+							</div>
+						</div>
+						<p class="ds-legende"><code>fiche, fiche__large, rule rule--lilac, technos, fiche__logos, is-tall</code> · realisations/viaco-plateforme-saas-btp.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : les technologies (technos), les logos de grands comptes (fiche__logos)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-etapes">
+					<h3>Étapes numérotées</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<ol class="steps">
+								<li class="step rule">
+									<p class="pill step__duration">Quatre à six jours, au forfait</p>
+									<h3>Le diagnostic de reprise</h3>
+									<p>Innéair lit votre code, votre chaîne de livraison et l'historique de vos incidents, puis s'entretient avec votre équipe.</p>
+									<p class="step__deliverable rule"><strong>Vous recevez</strong> Un document de décision&nbsp;: l'état de la plateforme, ses risques datés et un plan chiffré à 30 et 90 jours. Ce document vous appartient, et votre équipe ou un autre prestataire peut s'en servir.</p>
+									<p class="step__price">Son prix est fixé par écrit avant le démarrage.</p>
+								</li>
+								<li class="step rule">
+									<p class="pill step__duration">Une livraison tous les deux ou trois jours</p>
+									<h3>Les lots de fiabilisation</h3>
+									<p>Un lot de deux à trois semaines remet une zone du code sous tests, monte une version du socle ou automatise la mise en production. Il se termine par une recette.</p>
+									<p class="step__deliverable rule"><strong>Vous recevez</strong> Le code livré en production, ses tests et la trace des décisions prises.</p>
+								</li>
+								<li class="step rule">
+									<p class="pill step__duration">Au mois</p>
+									<h3>Le suivi</h3>
+									<p>Innéair maintient le socle à jour et prend en charge les corrections&nbsp;: cette maintenance applicative (TMA) est assurée par l'ingénieur qui a fait le diagnostic. Le périmètre et les délais de prise en charge sont écrits dans le contrat.</p>
+									<p class="step__deliverable rule"><strong>Vous recevez</strong> Une plateforme tenue à jour et un interlocuteur qui connaît votre code.</p>
+								</li>
+							</ol>
+						</div>
+						<p class="ds-legende"><code>steps, step, rule, pill step__duration, step__deliverable, step__price</code> · services/reprise-application-web.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la durée, le livrable, le prix</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-etape-projet">
+					<h3>Étape de projet et encart « à retenir »</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="wrap projet">
+								<section class="etape rule">
+									<h2>Piloter l'équipe et tenir une date</h2>
+									<aside class="encart measure rule--side" role="note" aria-label="À retenir">
+										<p><strong>v1.0</strong>mise en production à la date visée</p>
+									</aside>
+									<div class="etape__texte">
+										<p>Innéair a rejoint Viaco en mai 2020 comme tech lead et Scrum Master, sous la responsabilité du CTO. Elle dirigeait une équipe de quatre à cinq développeurs&nbsp;: elle concevait avec eux, relisait et validait leur travail, et menait les entretiens techniques de recrutement. Elle tenait les revues de sprint et animait les rétrospectives. Elle a écrit le processus de livraison de l'équipe et réalisait les mises en production&nbsp;: chacune passe par une copie de la production, suit un ordre de déploiement fixe et publie un changelog. Avant chaque chantier structurant, Innéair rédigeait une étude comparative, par exemple pour choisir entre une nouvelle version de l'API à côté de l'ancienne et une migration en place.</p>
+										<p>En mars 2021, Viaco attendait une nouvelle version pour convaincre plusieurs grands groupes du BTP, et le périmètre demandé dépassait ce que l'équipe pouvait livrer à la date voulue. <strong>Innéair a mesuré la vélocité réelle de l'équipe</strong>, posé les leviers possibles et proposé au CTO un arbitrage, qu'il a accepté&nbsp;: aucune baisse de qualité, un découpage en lots et une date tenable. Innéair a mis la version 1.0 en production à la date visée, le 8 avril 2021.</p>
+									</div>
+								</section>
+							</div>
+						</div>
+						<p class="ds-legende"><code>etape, rule, etape__texte, encart, measure, rule--side</code> · realisations/viaco-plateforme-saas-btp.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : l&#x27;encart (le chiffre à retenir)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-produit">
+					<h3>Produit mis en avant</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<article class="card product product--main">
+								<div>
+									<div class="product__head">
+										<img class="product__icon product__icon--mark" src="/images/produits/origami.webp" alt="" width="512" height="512" loading="lazy">
+										<div>
+											<p class="eyebrow">2008 à 2016</p>
+											<h3 class="card__title">Origami</h3>
+										</div>
+									</div>
+									<p>Un CMS modulaire et multi-sites pour les éditeurs de presse et les marques. Les rédacteurs modifiaient leurs pages directement dans le rendu final, une approche inhabituelle à l'époque, et devenaient autonomes en une journée de formation. Son principal utilisateur, Nivéales Médias, y publiait quinze sites de presse de montagne et de glisse, dont Skieur, Grimper et Montagnes Magazine.</p>
+									<ul class="product__facts">
+										<li class="measure rule rule--lilac"><strong>≈ 40</strong> sites déployés</li>
+										<li class="measure rule rule--lilac"><strong>25&nbsp;M+</strong> de pages vues en 2016 sur les sites de Nivéales Médias publiés avec Origami</li>
+										<li class="measure rule rule--lilac"><strong>JEI</strong> Jeune Entreprise Innovante, avec crédits d'impôt recherche et innovation</li>
+									</ul>
+								</div>
+								<svg class="product__figure" viewBox="0 0 440 300" aria-hidden="true">
+									<rect x="1.5" y="1.5" width="437" height="297" rx="16" fill="#fff" stroke="var(--color-rule)" stroke-width="3"/>
+									<path d="M1.5 38h437" stroke="var(--color-rule)" stroke-width="3"/>
+									<g fill="var(--color-lilac)"><circle cx="24" cy="20" r="5"/><circle cx="42" cy="20" r="5"/><circle cx="60" cy="20" r="5"/></g>
+									<rect x="28" y="62" width="150" height="14" rx="7" fill="var(--color-ink)"/>
+									<g fill="var(--color-lilac)" opacity="0.7"><rect x="28" y="92" width="230" height="8" rx="4"/><rect x="28" y="108" width="210" height="8" rx="4"/><rect x="28" y="124" width="222" height="8" rx="4"/></g>
+									<rect x="290" y="62" width="122" height="78" rx="10" fill="var(--color-mist)"/>
+									<path d="M302 128l28-30 20 20 16-12 34 22z" fill="var(--color-coral)" opacity="0.75"/>
+									<rect x="22" y="164" width="396" height="78" rx="10" fill="rgb(227 118 130 / 0.08)" stroke="var(--color-coral)" stroke-width="2.5" stroke-dasharray="7 6"/>
+									<g fill="var(--color-violet)"><rect x="38" y="182" width="200" height="10" rx="5"/><rect x="38" y="202" width="330" height="8" rx="4" opacity="0.5"/><rect x="38" y="218" width="280" height="8" rx="4" opacity="0.5"/></g>
+									<rect x="243" y="179" width="3" height="16" fill="var(--color-ink)"/>
+									<g><rect x="250" y="146" width="150" height="30" rx="15" fill="var(--color-ink)"/><g fill="#fff"><rect x="266" y="156" width="12" height="10" rx="3"/><rect x="290" y="156" width="12" height="10" rx="3" opacity="0.7"/><rect x="314" y="156" width="12" height="10" rx="3" opacity="0.7"/><rect x="338" y="156" width="12" height="10" rx="3" opacity="0.7"/></g><rect x="362" y="154" width="26" height="14" rx="7" fill="var(--color-coral)"/></g>
+									<g fill="var(--color-lilac)" opacity="0.7"><rect x="28" y="262" width="120" height="8" rx="4"/><rect x="160" y="262" width="120" height="8" rx="4"/><rect x="292" y="262" width="120" height="8" rx="4"/></g>
+								</svg>
+							</article>
+						</div>
+						<p class="ds-legende"><code>card product product--main, product__head, product__icon, product__icon--mark, eyebrow, product__figure, product__facts, measure</code> · entreprise/index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la figure, les faits chiffrés (product__facts) ; les produits secondaires (grid grid--2, product--wide, lab__title, lab__intro) sont des cartes sans figure</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-faq">
+					<h3>Questions fréquentes</h3>
+					<p class="ds-note">Liste raccourcie : 3 questions sur 9.</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band band--mist" id="ex45-questions" aria-labelledby="ex45-titre-questions">
+								<div class="wrap faq">
+									<div class="faq__aside">
+										<h2 id="ex45-titre-questions">Questions fréquentes sur la reprise</h2>
+										<p>Une autre question&nbsp;? Posez-la par e-mail à <a href="mailto:vincent.clair@inneair.com">vincent.clair@inneair.com</a>.</p>
+									</div>
+									<div class="faq__list">
+										<details>
+											<summary>Faut-il réécrire l'application&nbsp;?</summary>
+											<p>Pas d'un seul coup. Innéair ne propose pas de réécriture complète avec gel des fonctionnalités&nbsp;: l'application évolue par petits incréments pendant qu'elle est fiabilisée. Une partie du code n'est réécrite ou restructurée qu'une fois couverte par des tests automatisés, et le plan remis à la fin du diagnostic dit par où commencer. <a class="text-link" href="/realisations/somfy-plateforme-iot-b2b.html">Chez Somfy</a>, le moteur d'alertes, cœur métier de Serv-e-Go, avait connu une vingtaine de bogues en un an. Innéair l'a refondu fin 2022, après avoir mesuré l'usage réel de ses réglages en production, et le Product Owner n'y a plus remonté aucun bogue depuis.</p>
+										</details>
+										<details>
+											<summary>Innéair peut-elle reprendre une application écrite dans notre technologie&nbsp;?</summary>
+											<p>Les reprises menées jusqu'ici portent sur des applications écrites en Node.js, TypeScript et Angular, ou en PHP sous Symfony, y compris du code legacy. Pour une autre technologie, un premier échange sans engagement permet de savoir si une reprise par Innéair est raisonnable.</p>
+										</details>
+										<details>
+											<summary>Combien coûte un diagnostic&nbsp;?</summary>
+											<p>Le diagnostic est vendu au forfait. Son prix dépend de la taille de l'application, et il est fixé par écrit avant le démarrage, après un premier échange sans engagement.</p>
+										</details>
+									</div>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>faq, faq__aside, faq__list</code> · services/reprise-application-web.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le lien dans le texte latéral</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-contact">
+					<h3>Contact</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band band--gradient" id="ex47-contact">
+								<div class="wrap contact">
+									<div>
+										<h2>Parlons de votre projet.</h2>
+										<p>Décrivez-nous votre application ou le processus qui vous occupe, et ce qui vous gêne aujourd'hui. Un premier échange permet de savoir ce qu'Innéair peut y faire et ce que cela demanderait.</p>
+										<p class="contact__actions">
+											<a class="button button--light" href="mailto:vincent.clair@inneair.com?subject=Prise%20de%20contact">Écrire à Innéair</a>
+											<a class="text-link text-link--onDark" href="https://www.linkedin.com/company/inneair">Nous joindre sur LinkedIn</a>
+										</p>
+									</div>
+									<address class="card contact__card">
+										<strong class="card__title">Innéair</strong>
+										<span>102 impasse du Tacot<br>24660 Coulounieix-Chamiers</span>
+										<a href="tel:+33661459810">06&nbsp;61&nbsp;45&nbsp;98&nbsp;10</a>
+										<a href="mailto:vincent.clair@inneair.com">vincent.clair@inneair.com</a>
+										<span class="contact__zone rule">Innéair est installée à <a href="/perigueux-dordogne.html">Périgueux, en Dordogne</a>. Elle travaille à distance avec vos équipes partout en France, et se déplace pour les moments qui le demandent, à Bordeaux, à Limoges, à Brive ou plus loin.</span>
+									</address>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>band band--gradient, contact, contact__actions, card contact__card, contact__zone, rule</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : la carte d&#x27;adresse (contact__card), le lien texte à côté du bouton</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-prose">
+					<h3>Page de texte</h3>
+					<p class="ds-note">Texte coupé après les deux premières rubriques.</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="wrap">
+								<div class="prose">
+									<h2>Éditeur du site</h2>
+									<p>Le site inneair.com est édité par Innéair, société à responsabilité limitée au capital variable de 10&nbsp;000&nbsp;€.</p>
+									<ul>
+										<li>Siège social&nbsp;: 102 impasse du Tacot, 24660 Coulounieix-Chamiers, France</li>
+										<li>SIRET&nbsp;: 508 310 299 00039</li>
+										<li>RCS Périgueux 508 310 299</li>
+										<li>Numéro de TVA intracommunautaire&nbsp;: FR20508310299</li>
+										<li>Téléphone&nbsp;: <a href="tel:+33661459810">06&nbsp;61&nbsp;45&nbsp;98&nbsp;10</a></li>
+										<li>Courriel&nbsp;: <a href="mailto:vincent.clair@inneair.com">vincent.clair@inneair.com</a></li>
+									</ul>
+
+									<h2>Directeur de la publication</h2>
+									<p>Vincent Clair, gérant d'Innéair.</p>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>prose</code> · mentions-legales.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : les listes</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-pied">
+					<h3>Pied de page</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<footer class="site-footer">
+								<div class="wrap site-footer__grid">
+									<div>
+										<p class="logo logo--footer">
+											<img src="/images/inneair-icone.svg" alt="Logo d'Innéair" width="32" height="32">
+											<span class="logo__word" aria-hidden="true"><span class="logo__inne">inné</span><span class="logo__air">air</span></span>
+										</p>
+										<p class="site-footer__baseline">Mettez de l'oxygène dans vos applications web. Innéair les conçoit, les reprend et les fiabilise depuis 2008.</p>
+									</div>
+									<div>
+										<h2>Innéair</h2>
+										<ul>
+											<li><a href="/services/">Services</a></li>
+											<li><a href="/services/reprise-application-web.html#diagnostic">Le diagnostic de reprise</a></li>
+											<li><a href="/realisations/">Réalisations</a></li>
+											<li><a href="/entreprise/#editeur-logiciels">Éditeur de logiciels</a></li>
+											<li><a href="/entreprise/">L'entreprise</a></li>
+											<li><a href="/vincent-clair/">Vincent Clair</a></li>
+											<li><a href="/perigueux-dordogne.html">Périgueux et Dordogne</a></li>
+										</ul>
+									</div>
+									<div>
+										<h2>Contact</h2>
+										<ul>
+											<li>102 impasse du Tacot</li>
+											<li>24660 Coulounieix-Chamiers</li>
+											<li><a href="tel:+33661459810">06&nbsp;61&nbsp;45&nbsp;98&nbsp;10</a></li>
+											<li><a href="mailto:vincent.clair@inneair.com">vincent.clair@inneair.com</a></li>
+											<li><a href="https://www.linkedin.com/company/inneair">Innéair sur LinkedIn</a></li>
+										</ul>
+									</div>
+									<div>
+										<h2>Société</h2>
+										<ul>
+											<li>SARL au capital variable de 10&nbsp;000&nbsp;€</li>
+											<li>RCS Périgueux 508 310 299</li>
+											<li><a href="/mentions-legales.html">Mentions légales</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="wrap site-footer__legal">
+									<p>© 2008-2026 Innéair. Ce site ne dépose aucun cookie.</p>
+								</div>
+							</footer>
+						</div>
+						<p class="ds-legende"><code>site-footer, site-footer__grid, site-footer__baseline, site-footer__legal, logo logo--footer</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : tout sauf la ligne légale : les quatre colonnes (site-footer__grid) forment le pied complet, la ligne seule (site-footer__legal) est le pied réduit des autres pages (entreprise/principes.html)</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-gabarits" aria-labelledby="titre-ds-gabarits">
+			<div class="wrap">
+				<h2 id="titre-ds-gabarits">Gabarits</h2>
+				<p class="ds-note">Les bandes et les grilles, montrées une fois chacune.</p>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-bandes">
+					<h3>Bandes</h3>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band">
+								<div class="wrap">
+									<h2>L'entreprise</h2>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>band</code> · index.html (squelette : le titre seul)</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band band--mist">
+								<div class="wrap">
+									<h2>Témoignages</h2>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>band band--mist</code> · index.html (squelette : le titre seul)</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band band--ink">
+								<div class="wrap">
+									<h2>Réalisations</h2>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>band band--ink</code> · index.html (squelette : le titre seul)</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<section class="band band--gradient">
+								<div class="wrap">
+									<h2>Parlons de votre projet.</h2>
+								</div>
+							</section>
+						</div>
+						<p class="ds-legende"><code>band band--gradient</code> · index.html (squelette : le titre seul)</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="band band--liste">
+								<div class="wrap">
+									<div class="grid grid--2 grid--spaced">
+										<article class="card">
+											<h2 class="card__title">Usine logicielle</h2>
+											<p class="card__text">Vos développeurs travaillent déjà avec des agents, et vous voulez leur confier des tickets entiers. Des agents IA mènent un ticket jusqu'à une pull request vérifiée, et votre équipe garde la main sur les spécifications et sur la fusion.</p>
+											<ul class="list list--check">
+												<li>Diagnostic des fondations, de l'état de préparation et de la souveraineté</li>
+												<li>Pilote d'une usine à pull requests sur un repo</li>
+												<li>Chaque pull request relue par votre équipe</li>
+												<li>Agents isolés, sans accès à la production ni aux secrets</li>
+											</ul>
+											<p class="card__more"><a class="text-link" href="/services/usine-logicielle.html">Voir le déroulement d'une usine logicielle</a></p>
+										</article>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="ds-legende"><code>band band--liste (bande qui commence directement par la grille)</code> · services/index.html (une carte sur deux)</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : le titre et l&#x27;introduction : une bande peut ne contenir que sa grille</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-grilles">
+					<h3>Grilles</h3>
+					<p class="ds-note">Sous 66rem, --3 passe à 2 colonnes ; sous 40rem, --2 et --3 passent à 1 colonne. Règle commune : le dernier élément resté seul sur sa ligne occupe toute la ligne (:last-child:nth-child(odd) en 2 colonnes, :nth-child(3n+1) en 3).</p>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<ul class="grid grid--2 grid--tight">
+								<li class="card commitment">
+									<h3>Ce qui ne sert pas sort du produit</h3>
+									<p>Un écran, une option ou un bouton doit avoir un usage. Chez Somfy, la base de production a montré que 48 configurations d'alertes sur 5&nbsp;774 s'écartaient des valeurs par défaut&nbsp;: Innéair a retiré la personnalisation et refondu le moteur autour de déclencheurs explicites.</p>
+								</li>
+								<li class="card commitment">
+									<h3>L'usage tranche</h3>
+									<p>Sur Kanpai Ø, nous avons regardé des invités se servir du site&nbsp;: ils cherchaient une saveur plutôt qu'un spiritueux. Les spiritueux ont rejoint la liste des ingrédients du frigo, et les saveurs sont devenues le premier filtre.</p>
+								</li>
+							</ul>
+						</div>
+						<p class="ds-legende"><code>grid grid--2 grid--tight : 2 colonnes, serrée (2 cartes sur 4)</code> · entreprise/principes.html</p>
+					</div>
+					<div class="ds-exemple">
+						<div class="ds-rendu">
+							<div class="grid grid--3 grid--spaced">
+								<figure class="card quote">
+									<blockquote><p>«&nbsp;[…] Il sait intervenir lors de la conception, le run ou même la phase stabilisation d'un projet, ce qui n'est pas donné à tout le monde.&nbsp;»</p></blockquote>
+									<figcaption><strong>Alain Begey</strong>Alors directeur technique de Loyalty Company</figcaption>
+								</figure>
+								<figure class="card quote">
+									<blockquote><p>«&nbsp;Vincent a la grande qualité de prendre du recul sur le delivery quotidien et se projeter sur les enjeux business / time to market inhérents au produit.&nbsp;»</p></blockquote>
+									<figcaption><strong>Paul Delorge</strong>Senior Product Owner, Somfy</figcaption>
+								</figure>
+								<figure class="card quote">
+									<blockquote><p>«&nbsp;Les livraisons sont systématiquement stables, trouver des bugs c'est un défi pour moi […].&nbsp;»</p></blockquote>
+									<figcaption><strong>Lia Silade</strong>Responsable des tests, équipe Somfy</figcaption>
+								</figure>
+							</div>
+						</div>
+						<p class="ds-legende"><code>grid grid--3 grid--spaced : 3 colonnes, espacée</code> · index.html</p>
+					</div>
+					<p class="ds-legende">Éléments facultatifs : aucun ; le nombre de colonnes est une option de la grille (--2, --3), de même que la serrer (--tight) ou l&#x27;espacer (--spaced)</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="ds-composant" id="ds-grilles-table">
+					<h3>Grilles déclarées dans main.css</h3>
+					<div class="ds-table-wrap">
+						<table class="ds-table">
+							<thead>
+								<tr><th scope="col">Classe</th><th scope="col">grid-template-columns (hors adaptation mobile)</th></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.grid--1</code></td>
+									<td><code>minmax(0, 40rem)</code></td>
+								</tr>
+								<tr>
+									<td><code>.grid--2</code></td>
+									<td><code>repeat(2, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.grid--3</code></td>
+									<td><code>repeat(3, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.hero__grid</code></td>
+									<td><code>minmax(0, 1.25fr) minmax(0, 0.75fr)</code></td>
+								</tr>
+								<tr>
+									<td><code>.keyfigures</code></td>
+									<td><code>repeat(3, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.wall</code></td>
+									<td><code>repeat(5, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.steps</code></td>
+									<td><code>repeat(3, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.step</code></td>
+									<td><code>minmax(0, 1fr) auto</code></td>
+								</tr>
+								<tr>
+									<td><code>.product--main</code></td>
+									<td><code>minmax(0, 1.15fr) minmax(0, 0.85fr)</code></td>
+								</tr>
+								<tr>
+									<td><code>.product__facts</code></td>
+									<td><code>repeat(3, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.history</code></td>
+									<td><code>repeat(5, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.faq</code></td>
+									<td><code>minmax(0, 0.8fr) minmax(0, 1.2fr)</code></td>
+								</tr>
+								<tr>
+									<td><code>.contact</code></td>
+									<td><code>minmax(0, 1.35fr) minmax(0, 0.8fr)</code></td>
+								</tr>
+								<tr>
+									<td><code>.site-footer__grid</code></td>
+									<td><code>1.5fr 1fr 1.2fr 1.2fr</code></td>
+								</tr>
+								<tr>
+									<td><code>.fiche</code></td>
+									<td><code>repeat(3, minmax(0, 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.etape</code></td>
+									<td><code>minmax(0, 44rem) minmax(13rem, 17rem)</code></td>
+								</tr>
+								<tr>
+									<td><code>.encart</code></td>
+									<td><code>repeat(auto-fit, minmax(min(100%, 14rem), 1fr))</code></td>
+								</tr>
+								<tr>
+									<td><code>.steps, .grid--1</code></td>
+									<td><code>1fr</code></td>
+								</tr>
+								<tr>
+									<td><code>.hero__grid, .faq, .contact, .product--main</code></td>
+									<td><code>1fr</code></td>
+								</tr>
+								<tr>
+									<td><code>.grid--2, .grid--3, .product__facts, .keyfigures</code></td>
+									<td><code>1fr</code></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-fusions" aria-labelledby="titre-fusions">
+			<div class="wrap">
+				<h2 id="titre-fusions">Fusions</h2>
+				<p>Les fusions proposées sont appliquées : les anciennes classes n'existent plus ni dans le CSS ni dans les pages.</p>
+			</div>
+		</section>
+
+		<section class="ds-section" id="ds-orphelines" aria-labelledby="titre-orphelines">
+			<div class="wrap">
+				<h2 id="titre-orphelines">Classes orphelines</h2>
+				<p class="ds-note">Classes déclarées dans <code>main.css</code> qu'aucune page n'utilise.</p>
+				<p>Aucune : toutes les classes déclarées dans <code>main.css</code> sont utilisées par au moins une page.</p>
+				<p class="ds-note">Aucune classe n'est utilisée sans être déclarée dans <code>main.css</code>.</p>
+			</div>
+		</section>
+
+	</main>
+</body>
+</html>
